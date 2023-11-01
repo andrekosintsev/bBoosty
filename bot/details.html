@@ -28,29 +28,64 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                         <div class="card card-small card-post card-post--1">
-                            <iframe class="card-post__image" src="https://www.youtube.com/embed/TwD-YGVP4Bk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+                            <iframe class="card-post__image" src="https://www.youtube.com/embed/TwD-YGVP4Bk"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
                             </iframe>
                             <a href="#" class="card-post__category badge badge-pill badge-info">intermediate</a>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <a class="text-fiord-blue" href="#">Демо & Инструкция</a>
                                 </h5>
-                                <div class="btn-group btn-group-toggle card-title"  data-toggle="buttons">
-                                    <label class="btn btn-white active">
-                                        <input type="radio" name="options" id="option1" autocomplete="off" checked>Инструкция</label>
-                                    <label class="btn btn-white">
+                                <div class="btn-group btn-group-toggle card-title" data-toggle="buttons">
+                                    <label id="instruction" class="btn btn-white active">
+                                        <input type="radio" name="options" id="option1"
+                                               autocomplete="off" checked>Инструкция</label>
+                                    <label id="equipment" class="btn btn-white">
                                         <input type="radio" name="options" id="option3"
                                                autocomplete="off">Инвентарь</label>
                                 </div>
-                                <p class="card-text d-inline-block mb-3">Begin in a standing position with a dumbbell in each hand. Your arms should be hanging at your sides with your palms facing forward. Look directly ahead, keeping your chest up, with your feet shoulder-width apart. This will be your starting position. Initiate the movement by flexing the elbows to curl the weight. Do not use momentum or flex through the shoulder, instead use a controlled motion. Execute the pressing movement by extending the arm, flexing and abducting the shoulder to rotate the arm as you press above your head. Pause at the top of the motion before reversing the movement to return to the starting position. Complete the desired number of repetitions before switching to the opposite side.</p>
-                                <span class="text-muted">
-                                   <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                      <input type="checkbox" id="oftenRecommend" name="oftenRecommend" class="custom-control-input">
-                                      <label class="custom-control-label" for="oftenRecommend">Рекомендовать чаще</label>
-                                    </div>
-                                    <a class="nav-link" href="#">Заменить похожим</a>
+                                <div id="instructionOptions">
+                                    <p class="card-text d-inline-block mb-3">Begin in a standing position with a
+                                        dumbbell in each hand. Your arms should be hanging at your sides with your palms
+                                        facing forward. Look directly ahead, keeping your chest up, with your feet
+                                        shoulder-width apart. This will be your starting position. Initiate the movement
+                                        by flexing the elbows to curl the weight. Do not use momentum or flex through
+                                        the shoulder, instead use a controlled motion. Execute the pressing movement by
+                                        extending the arm, flexing and abducting the shoulder to rotate the arm as you
+                                        press above your head. Pause at the top of the motion before reversing the
+                                        movement to return to the starting position. Complete the desired number of
+                                        repetitions before switching to the opposite side.</p>
+                                    <span class="text-muted">
+                                        <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                                            <input type="checkbox" id="oftenRecommend" name="oftenRecommend"
+                                                   class="custom-control-input">
+                                            <label class="custom-control-label"
+                                                   for="oftenRecommend">Рекомендовать чаще</label>
+                                        </div>
                                     <button type="button" class="mb-2 btn btn-outline-danger mr-2">Больше не рекомендовать</button>
-                                </span>
+                                    </span>
+                                </div>
+                                <div class="row" id="equipmentOptions" style="display: none;">
+                                    <div class="col">
+                                        <div class="card card-small mb-4">
+                                            <div class="card-body p-0 pb-3 text-center">
+                                                <table class="table mb-0">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#" class="card-post__author-avatar ml-3 mt-3"
+                                                               style="background-image: url('https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&q=80&w=2787&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">dumbbell</a>
+                                                        </td>
+                                                        <td class="mr-3" style="vertical-align: middle; text-align: left;">
+                                                            dumbbell
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

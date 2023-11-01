@@ -1,8 +1,31 @@
 let tg = window.Telegram.WebApp;
 
 tg.expand();
-tg.MainButton.text = "Подобрать программу";
+tg.MainButton.text = "Заменить похожим";
 tg.MainButton.show();
+
+const instruction = document.getElementById('instruction');
+const equipment = document.getElementById('equipment');
+
+function hideAnother(nameActive) {
+    [instruction, equipment].forEach(item => {
+        if (nameActive === item) {
+            document.getElementById(item.id + 'Options').style.display = 'block';
+            item.classList.add("btn-primary");
+            item.classList.remove("btn-white");
+        } else {
+            document.getElementById(item.id + 'Options').style.display = 'none';
+            item.classList.add("btn-white");
+            item.classList.remove("btn-primary");
+        }
+    });
+}
+
+[instruction, equipment].forEach(item => {
+    item.addEventListener('click', function() {
+        hideAnother(item);
+    });
+});
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (selectedIds.length > 0) {
