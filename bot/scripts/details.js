@@ -72,7 +72,7 @@ document.getElementById('addRow').addEventListener('click', function() {
 });
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
-    collectedData.length = 0; // Clear the collected data array
+    collectedData.length = 0;
     const setList = document.getElementById('sets');
     for (let i = 0; i < setList.rows.length; i++) {
         const row = setList.rows[i];
@@ -85,7 +85,10 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
     }
     if (collectedData.length > 0) {
          tg.sendData(JSON.stringify({
-                        muscle_group: selectedIds
+                  exercise : {
+                            id: document.getElementById('id').value,
+                            sets: collectedData
+                        }
          }));
     }
     tg.close();
