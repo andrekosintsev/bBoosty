@@ -34,17 +34,39 @@
                             <a href="#" class="card-post__category badge badge-pill badge-info">intermediate</a>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a class="text-fiord-blue" href="#">Демо & Инструкция</a>
+                                    <a class="text-fiord-blue" href="#">Сеты & Инструкция</a>
                                 </h5>
-                                <div class="btn-group btn-group-toggle card-title" data-toggle="buttons">
-                                    <label id="instruction" class="btn btn-white active">
-                                        <input type="radio" name="options" id="option1"
-                                               autocomplete="off" checked>Инструкция</label>
-                                    <label id="equipment" class="btn btn-white">
+                                <div class="btn-group btn-group-toggle mb-3" data-toggle="buttons">
+                                    <label id="set" class="btn btn-white active">
                                         <input type="radio" name="options" id="option3"
-                                               autocomplete="off">Инвентарь</label>
+                                               autocomplete="off" checked>Сеты</label>
+                                    <label id="instruction" class="btn btn-white">
+                                        <input type="radio" name="options" id="option1"
+                                               autocomplete="off">Инструкция</label>
                                 </div>
-                                <div id="instructionOptions">
+                                <div class="row" id="setOptions">
+                                    <div class="col">
+                                        <div>
+                                            <div class="card-body p-0 pb-3 text-center">
+                                                <table class="table mb-0">
+                                                    <thead class="bg-light">
+                                                    <tr>
+                                                        <th scope="col" class="border-0">#</th>
+                                                        <th scope="col" class="border-0">Количество повторений</th>
+                                                        <th scope="col" class="border-0">Вес (кг)</th>
+                                                        <th scope="col" class="border-0"></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="sets">
+                                                    </tbody>
+                                                </table>
+                                                <button id="addRow" type="submit" class="btn btn-accent">Добавить сет
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="instructionOptions" style="display: none;">
                                     <p class="card-text d-inline-block mb-3">Begin in a standing position with a
                                         dumbbell in each hand. Your arms should be hanging at your sides with your palms
                                         facing forward. Look directly ahead, keeping your chest up, with your feet
@@ -55,37 +77,18 @@
                                         press above your head. Pause at the top of the motion before reversing the
                                         movement to return to the starting position. Complete the desired number of
                                         repetitions before switching to the opposite side.</p>
-                                    <span class="text-muted">
-                                        <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                            <input type="checkbox" id="oftenRecommend" name="oftenRecommend"
-                                                   class="custom-control-input">
-                                            <label class="custom-control-label"
-                                                   for="oftenRecommend">Рекомендовать чаще</label>
-                                        </div>
-                                    <button type="button" class="mb-2 btn btn-outline-danger mr-2">Больше не рекомендовать</button>
-                                    </span>
                                 </div>
-                                <div class="row" id="equipmentOptions" style="display: none;">
-                                    <div class="col">
-                                        <div class="card card-small mb-4">
-                                            <div class="card-body p-0 pb-3 text-center">
-                                                <table class="table mb-0">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#" class="card-post__author-avatar ml-3 mt-3"
-                                                               style="background-image: url('https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&q=80&w=2787&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">dumbbell</a>
-                                                        </td>
-                                                        <td class="mr-3" style="vertical-align: middle; text-align: left;">
-                                                            dumbbell
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                <span class="text-muted">
+                                            <div class="card-post border-top d-flex">
+                                                <div id="totalTime" href="#" class="card-text mr-auto mt-3">
+                                                   <a class="nav-link" href="#">Заменить</a>
+                                                </div>
+                                                <div class="my-auto ml-auto">
+                                                    <button id="collectDataButton" type="button"
+                                                            class="mb-2 btn btn-outline-danger mr-2">Удалить</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </span>
                             </div>
                         </div>
 
