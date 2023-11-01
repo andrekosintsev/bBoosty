@@ -3,9 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Shards Dashboard Lite - Free Bootstrap Admin Template – DesignRevision</title>
-    <meta name="description"
-          content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
+    <title>BBoosty</title>
+    <meta name="description" content="BBoosty<">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,42 +17,20 @@
 <body class="h-100">
 <div class="container-fluid">
     <div class="row">
-        <main class="main-content col-lg-12 col-md-12 col-sm-12 p-0">
+        <main class="main-content col-lg-12 col-md-12 col-sm-12 p-0 offset-lg-0 offset-md-0">
             <div class="main-content-container container-fluid px-4">
-                <!-- Default Light Table -->
-                <div class="row">
-                    <div class="col">
-                        <div class="card card-small mb-4">
-                            <div class="card-header border-bottom">
-                                <h6 class="m-0">Nutrition Calculator</h6>
-                            </div>
-                            <div class="card-body p-0 pb-3 text-center">
-                                <table class="table mb-0">
-                                    <thead class="bg-light">
-                                    <tr>
-                                        <th scope="col" class="border-0">Quantity</th>
-                                        <th scope="col" class="border-0">Type</th>
-                                        <th scope="col" class="border-0">Product Name</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="productList">
-
-                                    </tbody>
-                                </table>
-                                <button id="addRow" type="submit" class="btn btn-accent">Add Row</button>
-                            </div>
-                        </div>
+                <div class="page-header row no-gutters py-4">
+                    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                        <span class="text-uppercase page-subtitle">Выберите мышечную группу</span>
+                        <h3 class="page-title">Мышцы</h3>
                     </div>
                 </div>
-                <!-- End Default Light Table -->
+                <div class="row" id="muscles">
+                </div>
             </div>
         </main>
     </div>
 </div>
-<script>
-
-
-</script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -65,7 +42,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+<script src="scripts/shards-dashboards.1.1.0.js"></script>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script src="scripts/calc.js"></script>
+<script src="scripts/muscle.js"></script>
 </body>
 </html>
