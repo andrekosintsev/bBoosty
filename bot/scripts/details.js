@@ -6,6 +6,7 @@ tg.MainButton.show();
 
 let rowCount = 1;
 const maxRowCount = 11;
+let initData;
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -18,12 +19,16 @@ document.addEventListener("DOMContentLoaded", function() {
     if (encodedJsonData) {
         const jsonData = decodeURIComponent(encodedJsonData);
         const jsonObject = JSON.parse(jsonData);
+        initData = jsonObject;
         populateFormForEditing(jsonObject);
     }
 });
 
 function populateFormForEditing(entry) {
-    document.getElementById("id").value = entry.id || '';
+
+    if(entry.trainingSet) {
+         document.getElementById("id").value = entry.trainingSet.id || '';
+    }
     if(entry.exercise) {
         if(entry.exercise.instructions) {
             document.getElementById("instructions").textContent = entry.exercise.instructions;
@@ -60,11 +65,11 @@ function populateFormForEditing(entry) {
              document.getElementById("videoReplace").style.display = 'block';
         }
         //entry.exerciseId.data = [{"set":1, "repeat":10, "weight":110}, {"set":2, "repeat":10, "weight":120}, {"set":3, "repeat":10, "weight":125}];
-        if(entry.exercise.data) {
+        if(entry.trainingSet.data) {
             const setList = document.getElementById('sets');
 
 
-            entry.exercise.data.forEach(item=> {
+            entry.trainingSet.data.forEach(item=> {
                     const newRow = setList.insertRow(item.set - 1);
                     const cell1 = newRow.insertCell(0);
                     const cell2 = newRow.insertCell(1);
