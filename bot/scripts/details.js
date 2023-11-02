@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function populateFormForEditing(entry) {
     document.getElementById("id").value = entry.id || '';
-    if(entry.exerciseId) {
-        if(entry.exerciseId.instructions) {
-            document.getElementById("instructions").textContent = entry.exerciseId.instructions;
+    if(entry.exercise) {
+        if(entry.exercise.instructions) {
+            document.getElementById("instructions").textContent = entry.exercise.instructions;
         }
-        if(entry.exerciseId.difficulty) {
-            document.getElementById("difficulty").textContent = entry.exerciseId.difficulty;
-            switch (entry.exerciseId.difficulty) {
+        if(entry.exercise.difficulty) {
+            document.getElementById("difficulty").textContent = entry.exercise.difficulty;
+            switch (entry.exercise.difficulty) {
             case 'beginner':
                 document.getElementById("difficulty").classList.add("badge-info");
                 break;
@@ -45,26 +45,26 @@ function populateFormForEditing(entry) {
                 break;
             }
         }
-        if(entry.exerciseId.name) {
-             document.getElementById("enName").textContent = entry.exerciseId.name;
+        if(entry.exercise.name) {
+             document.getElementById("enName").textContent = entry.exercise.name;
         }
-        if(entry.exerciseId.ruName) {
-             document.getElementById("ruName").textContent = entry.exerciseId.ruName;
+        if(entry.exercise.ruName) {
+             document.getElementById("ruName").textContent = entry.exercise.ruName;
         }
         //entry.exerciseId.video = "https://www.youtube.com/embed/0qER1IjPNbU";
-        if(entry.exerciseId.video) {
-             document.getElementById("video").src = entry.exerciseId.video;
+        if(entry.exercise.video) {
+             document.getElementById("video").src = entry.exercise.video;
              document.getElementById("video").style.display = 'block';
         } else {
              document.getElementById("videoReplace").style.backgroundImage = "url('https://images.unsplash.com/photo-1610513320995-1ad4bbf25e55?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
              document.getElementById("videoReplace").style.display = 'block';
         }
         //entry.exerciseId.data = [{"set":1, "repeat":10, "weight":110}, {"set":2, "repeat":10, "weight":120}, {"set":3, "repeat":10, "weight":125}];
-        if(entry.exerciseId.data) {
+        if(entry.exercise.data) {
             const setList = document.getElementById('sets');
 
 
-            entry.exerciseId.data.forEach(item=> {
+            entry.exercise.data.forEach(item=> {
                     const newRow = setList.insertRow(item.set - 1);
                     const cell1 = newRow.insertCell(0);
                     const cell2 = newRow.insertCell(1);
