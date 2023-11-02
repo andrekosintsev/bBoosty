@@ -66,8 +66,8 @@ function populateFormForEditing(entry) {
         if(entry.trainingSet.data) {
             const setList = document.getElementById('sets');
 
-
-            entry.trainingSet.data.forEach(item=> {
+            entry.trainingSet.data.forEach(x=> {
+                    item = JSON.parse(x);
                     const newRow = setList.insertRow(item.set - 1);
                     const cell1 = newRow.insertCell(0);
                     const cell2 = newRow.insertCell(1);
