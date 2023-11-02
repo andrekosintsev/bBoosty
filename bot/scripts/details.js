@@ -6,7 +6,6 @@ tg.MainButton.show();
 
 let rowCount = 1;
 const maxRowCount = 11;
-let initData;
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (encodedJsonData) {
         const jsonData = decodeURIComponent(encodedJsonData);
         const jsonObject = JSON.parse(jsonData);
-        initData = jsonObject;
         populateFormForEditing(jsonObject);
     }
 });
