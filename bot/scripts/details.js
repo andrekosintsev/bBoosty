@@ -45,24 +45,22 @@ document.getElementById('addRow').addEventListener('click', function() {
         cell1.innerHTML = `<div class="form-group mt-2">${rowCount}</div>`;
         cell2.innerHTML = '<div class="form-group"><input type="number" class="form-control" placeholder="10"> </div>';
         cell3.innerHTML = '<div class="form-group"><input type="number" class="form-control" placeholder="100"> </div>';
-        cell4.innerHTML = '<i class="b-2 btn-sm btn-danger mr-1 material-icons large">delete_forever</i>';
+        cell4.innerHTML = '<i class="btn-sm btn-danger material-icons pb-1 pt-1" style="font-size: large; position: static;">delete_forever</i>';
         cell4.querySelector('i').addEventListener('click', function() {
-            const row = this.parentElement.parentElement; // Get the row containing the delete icon
+            const row = this.parentElement.parentElement;
             const index = Array.from(row.parentElement.rows).indexOf(row);
-            row.remove(); // Remove the row from the table
-            rowCount--; // Decrement the row count
-            // Update the row numbers for the remaining rows
+            row.remove();
+            rowCount--;
             for (let i = index; i < setList.rows.length; i++) {
                 setList.rows[i].cells[0].innerHTML = `<div class="form-group mt-2">${i + 1}</div>`;
             }
-            // Remove the corresponding data from the collectedData array
             collectedData.splice(index, 1);
         });
-        rowCount++; // Increment the row count
+        rowCount++;
     } else {
         tg.showPopup({
-            title: 'Максимальное количество',
-            message: 'Мне кажется вы уработались на этом упражнении',
+            title: 'Максимальное количество сетов достигнуто',
+            message: 'Мне кажется вы уработались на этом упражнении, переходите к другому упражнению!',
             buttons: [{
                 id: 'ok',
                 text: 'Okay'
@@ -70,6 +68,57 @@ document.getElementById('addRow').addEventListener('click', function() {
         }, function(buttonId) {});
     }
 });
+
+document.getElementById('change').addEventListener('click', function() {
+    let text = document.getElementById('neverRecommend').checked ? 'Замена упражнения в программе и удаление из рекомендации' : 'Замена упражнения в программе';
+    tg.showPopup({
+        title: text,
+        message: 'Вы уверены что хотите заменить упражнение?',
+        buttons: [{
+            id: 'ok',
+            text: 'Да'
+        }, {
+            id: 'cancel',
+            text: 'Отмена'
+        }]
+    }, function(buttonId) {
+        if ('ok' === buttonId) {
+            tg.sendData(JSON.stringify({
+                set_update: {
+                    id: document.getElementById('id').value,
+                    force: document.getElementById('neverRecommend').checked
+                }
+            }));
+            tg.close();
+        }
+    });
+});
+
+document.getElementById('delete').addEventListener('click', function() {
+    let text = document.getElementById('neverRecommend').checked ? 'Полное удаление и невозможность рекомендации' : 'Удаление из этой программы';
+    tg.showPopup({
+        title: text,
+        message: 'Вы уверены что хотите удалить упражнение?',
+        buttons: [{
+            id: 'ok',
+            text: 'Да'
+        }, {
+            id: 'cancel',
+            text: 'Отмена'
+        }]
+    }, function(buttonId) {
+        if ('ok' === buttonId) {
+            tg.sendData(JSON.stringify({
+                set_delete: {
+                    id: document.getElementById('id').value,
+                    force: document.getElementById('neverRecommend').checked
+                }
+            }));
+            tg.close();
+        }
+    });
+});
+
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     collectedData.length = 0;
@@ -84,12 +133,12 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
         collectedData.push(rowData);
     }
     if (collectedData.length > 0) {
-         tg.sendData(JSON.stringify({
-                  exercise : {
-                            id: document.getElementById('id').value,
-                            sets: collectedData
-                        }
-         }));
+        tg.sendData(JSON.stringify({
+            set_update: {
+                id: document.getElementById('id').value,
+                sets: collectedData
+            }
+        }));
     }
     tg.close();
 });

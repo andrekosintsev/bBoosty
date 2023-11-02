@@ -80,16 +80,24 @@
                                         repetitions before switching to the opposite side.</p>
                                 </div>
                                 <span class="text-muted">
-                                            <div class="card-post border-top d-flex">
-                                                <div id="totalTime" href="#" class="card-text mr-auto mt-3">
-                                                   <a class="nav-link" href="#">Заменить</a>
-                                                </div>
-                                                <div class="my-auto ml-auto">
-                                                    <button id="collectDataButton" type="button"
-                                                            class="mb-2 btn btn-outline-danger mr-2">Удалить</button>
-                                                </div>
+                                    <div class="card-post border-top">
+                                        <div class="my-auto ml-auto">
+                                            <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                                                <input type="checkbox" id="neverRecommend" name="neverRecommend" class="custom-control-input">
+                                                <label class="custom-control-label" for="neverRecommend">Не рекомендовать больше</label>
                                             </div>
-                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="card-post d-flex">
+                                        <div id="change" href="#" class="card-text mr-auto mt-3">
+                                            <a class="nav-link" href="#">Заменить упражнение</a>
+                                        </div>
+                                        <div class="my-auto ml-auto">
+                                            <button id="delete" type="button"
+                                                    class="mb-2 btn btn-outline-danger mr-2">Удалить из программы</button>
+                                        </div>
+                                    </div>
+                                </span>
                             </div>
                         </div>
 
