@@ -4,6 +4,93 @@ tg.expand();
 tg.MainButton.text = "Сохранить сеты";
 tg.MainButton.show();
 
+let rowCount = 1;
+const maxRowCount = 11;
+
+function getQueryParam(name) {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    return urlSearchParams.get(name);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const encodedJsonData = getQueryParam("json_data");
+
+    if (encodedJsonData) {
+        const jsonData = decodeURIComponent(encodedJsonData);
+        const jsonObject = JSON.parse(jsonData);
+        populateFormForEditing(jsonObject);
+    }
+});
+
+function populateFormForEditing(entry) {
+    document.getElementById("id").value = entry.id || '';
+    if(entry.exerciseId) {
+        if(entry.exerciseId.instructions) {
+            document.getElementById("instructions").textContent = entry.exerciseId.instructions;
+        }
+        if(entry.exerciseId.difficulty) {
+            document.getElementById("difficulty").textContent = entry.exerciseId.difficulty;
+            switch (entry.exerciseId.difficulty) {
+            case 'beginner':
+                document.getElementById("difficulty").classList.add("badge-info");
+                break;
+            case 'intermediate':
+                document.getElementById("difficulty").classList.add("badge-warning");
+                break;
+            case 'expert':
+                document.getElementById("difficulty").classList.add("badge-danger");
+                break;
+            default:
+               document.getElementById("difficulty").classList.add("badge-info");
+                break;
+            }
+        }
+        if(entry.exerciseId.name) {
+             document.getElementById("enName").textContent = entry.exerciseId.name;
+        }
+        if(entry.exerciseId.ruName) {
+             document.getElementById("ruName").textContent = entry.exerciseId.ruName;
+        }
+        //entry.exerciseId.video = "https://www.youtube.com/embed/0qER1IjPNbU";
+        if(entry.exerciseId.video) {
+             document.getElementById("video").src = entry.exerciseId.video;
+             document.getElementById("video").style.display = 'block';
+        } else {
+             document.getElementById("videoReplace").style.backgroundImage = "url('https://images.unsplash.com/photo-1610513320995-1ad4bbf25e55?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+             document.getElementById("videoReplace").style.display = 'block';
+        }
+        //entry.exerciseId.data = [{"set":1, "repeat":10, "weight":110}, {"set":2, "repeat":10, "weight":120}, {"set":3, "repeat":10, "weight":125}];
+        if(entry.exerciseId.data) {
+            const setList = document.getElementById('sets');
+
+
+            entry.exerciseId.data.forEach(item=> {
+                    const newRow = setList.insertRow(item.set - 1);
+                    const cell1 = newRow.insertCell(0);
+                    const cell2 = newRow.insertCell(1);
+                    const cell3 = newRow.insertCell(2);
+                    const cell4 = newRow.insertCell(3);
+
+                    cell1.innerHTML = `<div class="form-group mt-2">${item.set}</div>`;
+                    cell2.innerHTML = `<div class="form-group"><input type="number" class="form-control" placeholder="10" value="${item.repeat}"></div>`;
+                    cell3.innerHTML = `<div class="form-group"><input type="number" class="form-control" placeholder="100" value="${item.weight}"></div>`;
+                    cell4.innerHTML = `<i class="btn-sm btn-danger material-icons pb-1 pt-1" style="font-size: large; position: static;">delete_forever</i>`;
+                    cell4.querySelector('i').addEventListener('click', function() {
+                        const row = this.parentElement.parentElement;
+                        const index = Array.from(row.parentElement.rows).indexOf(row);
+                        row.remove();
+                        rowCount--;
+                        for (let i = index; i < setList.rows.length; i++) {
+                            setList.rows[i].cells[0].innerHTML = `<div class="form-group mt-2">${i + 1}</div>`;
+                        }
+                        collectedData.splice(index, 1);
+                    });
+                    rowCount++;
+            });
+        }
+    }
+}
+
 const instruction = document.getElementById('instruction');
 const set = document.getElementById('set');
 
@@ -28,9 +115,6 @@ function hideAnother(nameActive) {
         hideAnother(item);
     });
 });
-
-let rowCount = 1;
-const maxRowCount = 11;
 
 document.getElementById('addRow').addEventListener('click', function() {
     if (rowCount < maxRowCount) {

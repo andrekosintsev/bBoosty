@@ -22,17 +22,21 @@
             <div class="main-content-container container-fluid px-4">
                 <div class="page-header row no-gutters py-4">
                     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                        <span class="text-uppercase page-subtitle">Молотковые скручивания (Hammer Curls)</span>
-                        <h3 class="page-title">Hammer Curls</h3>
+                        <span id="ruName"
+                              class="text-uppercase page-subtitle">Молотковые скручивания (Hammer Curls)</span>
+                        <h3 id="enName" class="page-title">Hammer Curls</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                         <div class="card card-small card-post card-post--1">
-                            <iframe class="card-post__image" src="https://www.youtube.com/embed/TwD-YGVP4Bk"
+                            <iframe style="display: none;" id="video" class="card-post__image"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
                             </iframe>
-                            <a href="#" class="card-post__category badge badge-pill badge-info">intermediate</a>
+                            <div id="videoReplace"  class="card-post__image"
+                                 style="display: none;">
+                            </div>
+                            <a id="difficulty" href="#" class="card-post__category badge badge-pill badge-info">intermediate</a>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <a class="text-fiord-blue" href="#">Сеты & Инструкция</a>
@@ -68,22 +72,17 @@
                                     </div>
                                 </div>
                                 <div id="instructionOptions" style="display: none;">
-                                    <p class="card-text d-inline-block mb-3">Begin in a standing position with a
-                                        dumbbell in each hand. Your arms should be hanging at your sides with your palms
-                                        facing forward. Look directly ahead, keeping your chest up, with your feet
-                                        shoulder-width apart. This will be your starting position. Initiate the movement
-                                        by flexing the elbows to curl the weight. Do not use momentum or flex through
-                                        the shoulder, instead use a controlled motion. Execute the pressing movement by
-                                        extending the arm, flexing and abducting the shoulder to rotate the arm as you
-                                        press above your head. Pause at the top of the motion before reversing the
-                                        movement to return to the starting position. Complete the desired number of
-                                        repetitions before switching to the opposite side.</p>
+                                    <p id="instructions" class="card-text d-inline-block mb-3"> Инструкция к данному
+                                        упражнению еще не описана в нашей базе данных, мы работаем над этим!
+                                        Вы также можете посодействовать развитию и улучшению этого бота, отправив нам
+                                        информацию об упражнении на адрес kvad.software@rambler.ru</p>
                                 </div>
                                 <span class="text-muted">
                                     <div class="card-post border-top">
                                         <div class="my-auto ml-auto">
                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                                <input type="checkbox" id="neverRecommend" name="neverRecommend" class="custom-control-input">
+                                                <input type="checkbox" id="neverRecommend" name="neverRecommend"
+                                                       class="custom-control-input">
                                                 <label class="custom-control-label" for="neverRecommend">Не рекомендовать больше</label>
                                             </div>
                                         </div>
