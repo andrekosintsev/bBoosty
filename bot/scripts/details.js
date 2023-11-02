@@ -24,71 +24,71 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function populateFormForEditing(entry) {
 
-    if(entry.trainingSet) {
-         document.getElementById("id").value = entry.trainingSet.id || '';
+    if (entry.trainingSet) {
+        document.getElementById("id").value = entry.trainingSet.id || '';
     }
-    if(entry.exercise) {
-        if(entry.exercise.instructions) {
+    if (entry.exercise) {
+        if (entry.exercise.instructions) {
             document.getElementById("instructions").textContent = entry.exercise.instructions;
         }
-        if(entry.exercise.difficulty) {
+        if (entry.exercise.difficulty) {
             document.getElementById("difficulty").textContent = entry.exercise.difficulty;
             switch (entry.exercise.difficulty) {
-            case 'beginner':
-                document.getElementById("difficulty").classList.add("badge-info");
-                break;
-            case 'intermediate':
-                document.getElementById("difficulty").classList.add("badge-warning");
-                break;
-            case 'expert':
-                document.getElementById("difficulty").classList.add("badge-danger");
-                break;
-            default:
-               document.getElementById("difficulty").classList.add("badge-info");
-                break;
+                case 'beginner':
+                    document.getElementById("difficulty").classList.add("badge-info");
+                    break;
+                case 'intermediate':
+                    document.getElementById("difficulty").classList.add("badge-warning");
+                    break;
+                case 'expert':
+                    document.getElementById("difficulty").classList.add("badge-danger");
+                    break;
+                default:
+                    document.getElementById("difficulty").classList.add("badge-info");
+                    break;
             }
         }
-        if(entry.exercise.name) {
-             document.getElementById("enName").textContent = entry.exercise.name;
+        if (entry.exercise.name) {
+            document.getElementById("enName").textContent = entry.exercise.name;
         }
-        if(entry.exercise.ruName) {
-             document.getElementById("ruName").textContent = entry.exercise.ruName;
+        if (entry.exercise.ruName) {
+            document.getElementById("ruName").textContent = entry.exercise.ruName;
         }
         //entry.exerciseId.video = "https://www.youtube.com/embed/0qER1IjPNbU";
-        if(entry.exercise.video) {
-             document.getElementById("video").src = entry.exercise.video;
-             document.getElementById("video").style.display = 'block';
+        if (entry.exercise.video) {
+            document.getElementById("video").src = entry.exercise.video;
+            document.getElementById("video").style.display = 'block';
         } else {
-             document.getElementById("videoReplace").style.backgroundImage = "url('https://images.unsplash.com/photo-1610513320995-1ad4bbf25e55?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
-             document.getElementById("videoReplace").style.display = 'block';
+            document.getElementById("videoReplace").style.backgroundImage = "url('https://images.unsplash.com/photo-1610513320995-1ad4bbf25e55?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+            document.getElementById("videoReplace").style.display = 'block';
         }
         //entry.exerciseId.data = [{"set":1, "repeat":10, "weight":110}, {"set":2, "repeat":10, "weight":120}, {"set":3, "repeat":10, "weight":125}];
-        if(entry.trainingSet.data) {
+        if (entry.trainingSet.data) {
             const setList = document.getElementById('sets');
 
-            entry.trainingSet.data.forEach(x=> {
-                    item = JSON.parse(x);
-                    const newRow = setList.insertRow(item.set - 1);
-                    const cell1 = newRow.insertCell(0);
-                    const cell2 = newRow.insertCell(1);
-                    const cell3 = newRow.insertCell(2);
-                    const cell4 = newRow.insertCell(3);
+            entry.trainingSet.data.forEach(x => {
+                item = JSON.parse(x);
+                const newRow = setList.insertRow(item.set - 1);
+                const cell1 = newRow.insertCell(0);
+                const cell2 = newRow.insertCell(1);
+                const cell3 = newRow.insertCell(2);
+                const cell4 = newRow.insertCell(3);
 
-                    cell1.innerHTML = `<div class="form-group mt-2">${item.set}</div>`;
-                    cell2.innerHTML = `<div class="form-group"><input type="number" class="form-control" placeholder="10" value="${item.repeat}"></div>`;
-                    cell3.innerHTML = `<div class="form-group"><input type="number" class="form-control" placeholder="100" value="${item.weight}"></div>`;
-                    cell4.innerHTML = `<i class="btn-sm btn-danger material-icons pb-1 pt-1" style="font-size: large; position: static;">delete_forever</i>`;
-                    cell4.querySelector('i').addEventListener('click', function() {
-                        const row = this.parentElement.parentElement;
-                        const index = Array.from(row.parentElement.rows).indexOf(row);
-                        row.remove();
-                        rowCount--;
-                        for (let i = index; i < setList.rows.length; i++) {
-                            setList.rows[i].cells[0].innerHTML = `<div class="form-group mt-2">${i + 1}</div>`;
-                        }
-                        collectedData.splice(index, 1);
-                    });
-                    rowCount++;
+                cell1.innerHTML = `<div class="form-group mt-2">${item.set}</div>`;
+                cell2.innerHTML = `<div class="form-group"><input type="number" class="form-control" placeholder="10" value="${item.repeat}"></div>`;
+                cell3.innerHTML = `<div class="form-group"><input type="number" class="form-control" placeholder="100" value="${item.weight}"></div>`;
+                cell4.innerHTML = `<i class="btn-sm btn-danger material-icons pb-1 pt-1" style="font-size: large; position: static;">delete_forever</i>`;
+                cell4.querySelector('i').addEventListener('click', function() {
+                    const row = this.parentElement.parentElement;
+                    const index = Array.from(row.parentElement.rows).indexOf(row);
+                    row.remove();
+                    rowCount--;
+                    for (let i = index; i < setList.rows.length; i++) {
+                        setList.rows[i].cells[0].innerHTML = `<div class="form-group mt-2">${i + 1}</div>`;
+                    }
+                    collectedData.splice(index, 1);
+                });
+                rowCount++;
             });
         }
     }
