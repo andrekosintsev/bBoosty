@@ -233,7 +233,9 @@ document.getElementById('delete').addEventListener('click', function() {
             tg.sendData(JSON.stringify({
                 set_delete: {
                     id: document.getElementById('id').value,
-                    force: document.getElementById('neverRecommend').checked
+                    exId: document.getElementById('exId').value,
+                    force: document.getElementById('neverRecommend').checked,
+                    muscle: document.getElementById("muscle").value
                 }
             }));
             tg.close();
