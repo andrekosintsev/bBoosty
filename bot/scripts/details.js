@@ -28,7 +28,7 @@ function populateFormForEditing(entry) {
         document.getElementById("id").value = entry.trainingSet.id || '';
     }
     if (entry.exercise) {
-        document.getElementById("exId").textContent = entry.exercise.id || '';
+        document.getElementById("exId").value = entry.exercise.id || '';
         document.getElementById("muscle").value = entry.exercise.muscle || '';
         if (entry.exercise.instructions) {
             document.getElementById("instructions").textContent = entry.exercise.instructions;
