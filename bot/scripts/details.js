@@ -54,7 +54,6 @@ function populateFormForEditing(entry) {
         if (entry.exercise.ruName) {
             document.getElementById("ruName").textContent = entry.exercise.ruName;
         }
-        //entry.exerciseId.video = "https://www.youtube.com/embed/0qER1IjPNbU";
         if (entry.exercise.video) {
             document.getElementById("video").src = entry.exercise.video;
             document.getElementById("video").style.display = 'block';
@@ -62,7 +61,6 @@ function populateFormForEditing(entry) {
             document.getElementById("videoReplace").style.backgroundImage = "url('https://images.unsplash.com/photo-1610513320995-1ad4bbf25e55?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
             document.getElementById("videoReplace").style.display = 'block';
         }
-        //entry.exerciseId.data = [{"set":1, "repeat":10, "weight":110}, {"set":2, "repeat":10, "weight":120}, {"set":3, "repeat":10, "weight":125}];
         if (entry.trainingSet.data) {
             const setList = document.getElementById('sets');
 
@@ -171,7 +169,7 @@ document.getElementById('change').addEventListener('click', function() {
     }, function(buttonId) {
         if ('ok' === buttonId) {
             tg.sendData(JSON.stringify({
-                set_update: {
+                set_replace: {
                     id: document.getElementById('id').value,
                     force: document.getElementById('neverRecommend').checked
                 }
