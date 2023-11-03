@@ -5,7 +5,7 @@ tg.MainButton.text = "Сохранить сеты";
 tg.MainButton.show();
 
 let rowCount = 1;
-const maxRowCount = 11;
+const maxRowCount = 7;
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -89,6 +89,22 @@ function populateFormForEditing(entry) {
                     }
                     collectedData.splice(index, 1);
                 });
+                const repeatInput = cell2.querySelector('input');
+                repeatInput.addEventListener('input', function() {
+                    if (this.value < 0) {
+                        this.value = 0;
+                    } else if (this.value > 50) {
+                        this.value = 50;
+                    }
+                });
+                const weightInput = cell3.querySelector('input');
+                weightInput.addEventListener('input', function() {
+                    if (this.value < 0) {
+                        this.value = 0;
+                    } else if (this.value > 530) {
+                        this.value = 530;
+                    }
+                });
                 rowCount++;
             });
         }
@@ -143,6 +159,22 @@ document.getElementById('addRow').addEventListener('click', function() {
                 setList.rows[i].cells[0].innerHTML = `<div class="form-group mt-2">${i + 1}</div>`;
             }
             collectedData.splice(index, 1);
+        });
+        const repeatInput = cell2.querySelector('input');
+        repeatInput.addEventListener('input', function() {
+            if (this.value < 0) {
+                this.value = 0;
+            } else if (this.value > 50) {
+                this.value = 50;
+            }
+        });
+        const weightInput = cell3.querySelector('input');
+        weightInput.addEventListener('input', function() {
+            if (this.value < 0) {
+                this.value = 0;
+            } else if (this.value > 530) {
+                this.value = 530;
+            }
         });
         rowCount++;
     } else {
