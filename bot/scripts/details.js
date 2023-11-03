@@ -31,6 +31,9 @@ function populateFormForEditing(entry) {
         if (entry.exercise.instructions) {
             document.getElementById("instructions").textContent = entry.exercise.instructions;
         }
+        if (entry.exercise.muscle) {
+             document.getElementById("muscle").value = entry.exercise.muscle || '';
+        }
         if (entry.exercise.difficulty) {
             document.getElementById("difficulty").textContent = entry.exercise.difficulty;
             switch (entry.exercise.difficulty) {
@@ -171,7 +174,8 @@ document.getElementById('change').addEventListener('click', function() {
             tg.sendData(JSON.stringify({
                 set_replace: {
                     id: document.getElementById('id').value,
-                    force: document.getElementById('neverRecommend').checked
+                    force: document.getElementById('neverRecommend').checked,
+                    muscle: document.getElementById("muscle").value
                 }
             }));
             tg.close();
