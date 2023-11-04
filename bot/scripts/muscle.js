@@ -165,10 +165,10 @@ muscleData.forEach((muscle) => {
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (selectedIds.length > 0) {
-        if (selectedIds.length > 4) {
+        if (selectedIds.length >= 2 ) {
             tg.showPopup({
                 title: 'Ошибка',
-                message: 'Выбрано больше 4 категорий, уберите лишнее. Я не вижу смысла генерировать упражнения сразу для более, чем 4х групп мышц',
+                message: 'Выбрано больше 1 категории, уберите лишнее. Я подготовлю тебе упражнения на одну группу мышц, завершив программу можешь выбрать другую группу.',
                 buttons: [{
                     id: 'delete',
                     type: 'ok',
