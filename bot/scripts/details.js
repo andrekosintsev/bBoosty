@@ -35,19 +35,22 @@ function populateFormForEditing(entry) {
         }
 
         if (entry.exercise.difficulty) {
-            document.getElementById("difficulty").textContent = entry.exercise.difficulty;
             switch (entry.exercise.difficulty) {
                 case 'beginner':
                     document.getElementById("difficulty").classList.add("badge-info");
+                    document.getElementById("difficulty").textContent = "новичок";
                     break;
                 case 'intermediate':
                     document.getElementById("difficulty").classList.add("badge-warning");
+                    document.getElementById("difficulty").textContent = "средний";
                     break;
                 case 'expert':
                     document.getElementById("difficulty").classList.add("badge-danger");
+                    document.getElementById("difficulty").textContent = "эксперт";
                     break;
                 default:
                     document.getElementById("difficulty").classList.add("badge-info");
+                    document.getElementById("difficulty").textContent = "новичок";
                     break;
             }
         }
