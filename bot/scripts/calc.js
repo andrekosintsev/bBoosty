@@ -20,10 +20,15 @@ document.getElementById('addRow').addEventListener('click', function() {
         cell2.innerHTML = `
             <div>
                 <select class="form-control" style="width: -webkit-fill-available;">
+                    <option value="pcs">pcs</option>
                     <option value="oz">oz</option>
                     <option value="kg">kg</option>
                     <option value="cup">cup</option>
                     <option value="g">g</option>
+                    <option value="ml">ml</option>
+                    <option value="mg">mg</option>
+                    <option value="teaspoon">teaspoon</option>
+                    <option value="tablespoon">tablespoon</option>
                 </select>
             </div>
             `;
