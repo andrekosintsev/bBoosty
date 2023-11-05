@@ -12,15 +12,6 @@ function getQueryParam(name) {
 
 const encodedJsonData = getQueryParam("json_data");
 
-document.getElementById('experience').addEventListener('input', function () {
-        const value = parseInt(this.value);
-        if (value < 1) {
-            this.value = '1';
-        } else if (value > 70) {
-            this.value = '70';
-        }
-    });
-
 if (encodedJsonData) {
     const jsonData = decodeURIComponent(encodedJsonData);
     const fixedJson = jsonData.replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2":');
