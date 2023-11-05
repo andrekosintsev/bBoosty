@@ -1,6 +1,6 @@
 let tg = window.Telegram.WebApp;
 tg.expand();
-tg.MainButton.setText("Save filter");
+tg.MainButton.setText("Сохранить фильтр");
 tg.MainButton.show();
 
 const basic = document.getElementById('basic');
