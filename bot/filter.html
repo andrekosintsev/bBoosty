@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Meal Filter Zen Zephyr Telegram Bot</title>
+    <title>Meal Filter BBoosty Telegram Bot</title>
     <meta name="description"
           content="Meal Filter Component Zen Zephyr Telegram Bot">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,94 +26,96 @@
                     <div class="col-lg-12 mb-4">
                         <div class="card card-small mb-4">
                             <div class="card-header border-bottom">
-                                <h6 class="m-0">Filter</h6>
+                                <h6 class="m-0">Фильтр</h6>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item px-3">
                                     <!-- Button Groups -->
-                                    <strong class="text-muted d-block mb-2">Choose one or more methods</strong>
+                                    <strong class="text-muted d-block mb-2">Выберите один или несколько методов</strong>
                                     <!-- / Button Groups -->
-                                    <button type="button" class="mb-2 btn btn-primary mr-2" id="basic">Basic</button>
-                                    <button type="button" class="mb-2 btn btn-white mr-2" id="allergies">Allergies/Diets
+                                    <button type="button" class="mb-2 btn btn-primary mr-2" id="basic">Базовые</button>
+                                    <button type="button" class="mb-2 btn btn-white mr-2" id="allergies">Аллергия/Диета
                                     </button>
-                                    <button type="button" class="mb-2 btn btn-white mr-2" id="calories">Calories
+                                    <button type="button" class="mb-2 btn btn-white mr-2" id="calories">Калории
                                     </button>
-                                    <button type="button" class="mb-2 btn btn-white mr-2" id="nutrients">Nutrients
+                                    <button type="button" class="mb-2 btn btn-white mr-2" id="nutrients">Питательные
+                                        вещества
                                     </button>
 
-                                    <!-- Basic -->
+                                    <!-- Основные параметры -->
                                     <div class="card card-small mb-4" id="basicOptions" style="display: none;">
                                         <div class="card-header border-bottom">
-                                            <h6 class="m-0">Basic Types</h6>
+                                            <h6 class="m-0">Основные</h6>
                                         </div>
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item px-3">
                                                 <div class="mb-2">
-                                                    <strong class="text-muted d-block mb-3">Cuisine Type:</strong>
+                                                    <strong class="text-muted d-block mb-3">Тип кухни:</strong>
                                                     <div class="form-row">
                                                         <div class="form-group col-md-5">
                                                             <select multiple="multiple" id="cuisineType"
                                                                     class="form-control">
-                                                                <option value="American"> American</option>
-                                                                <option value="Asian">Asian</option>
-                                                                <option value="British">British</option>
-                                                                <option value="Caribbean">Caribbean</option>
-                                                                <option value="Central Europe">Central Europe</option>
-                                                                <option value="Chinese">Chinese</option>
-                                                                <option value="Eastern Europe">Eastern Europe</option>
-                                                                <option value="French">French</option>
-                                                                <option value="Indian">Indian</option>
-                                                                <option value="Italian">Italian</option>
-                                                                <option value="Japanese">Japanese</option>
-                                                                <option value="Kosher">Kosher</option>
-                                                                <option value="Mediterranean">Mediterranean</option>
-                                                                <option value="Mexican">Mexican</option>
-                                                                <option value="Middle Eastern">Middle Eastern</option>
-                                                                <option value="Nordic">Nordic</option>
-                                                                <option value="South American">South American</option>
-                                                                <option value="South East Asian">South East Asian
+                                                                <option value="American"> Американская</option>
+                                                                <option value="Asian">Азиатская</option>
+                                                                <option value="British">Британская</option>
+                                                                <option value="Caribbean">Карибская</option>
+                                                                <option value="Central Europe">Центральноевропейская
+                                                                </option>
+                                                                <option value="Chinese">Китайская</option>
+                                                                <option value="Eastern Europe">Восточноевропейская
+                                                                </option>
+                                                                <option value="French">Французская</option>
+                                                                <option value="Indian">Индийская</option>
+                                                                <option value="Italian">Итальянская</option>
+                                                                <option value="Japanese">Японская</option>
+                                                                <option value="Kosher">Кошер</option>
+                                                                <option value="Mediterranean">Средиземноморская</option>
+                                                                <option value="Mexican">Мексиканская</option>
+                                                                <option value="Middle Eastern">Ближневосточная</option>
+                                                                <option value="Nordic">Северная</option>
+                                                                <option value="South American">Южноамериканская</option>
+                                                                <option value="South East Asian">Юго-Восточноазиатская
                                                                 </option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <strong class="text-muted d-block mb-3">Meal Type:</strong>
+                                                    <strong class="text-muted d-block mb-3">Тип приема пищи:</strong>
                                                     <div class="form-row">
                                                         <div class="form-group col-md-5">
                                                             <select multiple="multiple" id="mealType"
                                                                     class="form-control">
-                                                                <option value="Breakfast">Breakfast</option>
-                                                                <option value="Dinner">Dinner</option>
-                                                                <option value="Lunch">Lunch</option>
-                                                                <option value="Snack">Snack</option>
-                                                                <option value="Teatime">Teatime</option>
+                                                                <option value="Breakfast">Завтрак</option>
+                                                                <option value="Dinner">Ужин</option>
+                                                                <option value="Lunch">Обед</option>
+                                                                <option value="Snack">Перекус</option>
+                                                                <option value="Teatime">Чаепитие</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <strong class="text-muted d-block mb-3">Dish Type:</strong>
+                                                    <strong class="text-muted d-block mb-3">Тип блюда:</strong>
                                                     <div class="form-row">
                                                         <div class="form-group col-md-5">
                                                             <select multiple="multiple" id="dishType"
                                                                     class="form-control">
-                                                                <option value="Biscuits and cookies">Biscuits and
-                                                                    cookies
+                                                                <option value="Biscuits and cookies">Печенье и
+                                                                    пирожные
                                                                 </option>
-                                                                <option value="Bread">Bread</option>
-                                                                <option value="Cereals">Cereals</option>
-                                                                <option value="Condiments and sauces">Condiments and
-                                                                    sauces
+                                                                <option value="Bread">Хлеб</option>
+                                                                <option value="Cereals">Злаки</option>
+                                                                <option value="Condiments and sauces">Приправы и соусы
                                                                 </option>
-                                                                <option value="Desserts">Desserts</option>
-                                                                <option value="Drinks">Drinks</option>
-                                                                <option value="Main course">Main course</option>
-                                                                <option value="Pancake">Pancake</option>
-                                                                <option value="Preps">Preps</option>
-                                                                <option value="Preserve">Preserve</option>
-                                                                <option value="Salad">Salad</option>
-                                                                <option value="Sandwiches">Sandwiches</option>
-                                                                <option value="Side dish">Side dish</option>
-                                                                <option value="Soup">Soup</option>
-                                                                <option value="Starter">Starter</option>
-                                                                <option value="Sweets">Sweets</option>
+                                                                <option value="Desserts">Десерты</option>
+                                                                <option value="Drinks">Напитки</option>
+                                                                <option value="Main course">Основное блюдо</option>
+                                                                <option value="Pancake">Блинчики</option>
+                                                                <option value="Preps">Приготовления</option>
+                                                                <option value="Preserve">Консервы</option>
+                                                                <option value="Salad">Салаты</option>
+                                                                <option value="Sandwiches">Бутерброды</option>
+                                                                <option value="Side dish">Гарниры</option>
+                                                                <option value="Soup">Супы</option>
+                                                                <option value="Starter">Закуски</option>
+                                                                <option value="Sweets">Сладости</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -121,93 +123,102 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <!-- / Basic -->
-                                    <!-- Allergies/Diets -->
+                                    <!-- / Основные параметры -->
+                                    <!-- Аллергии/Диеты -->
                                     <div class="card card-small mb-4" id="allergiesOptions" style="display: none;">
                                         <div class="card-header border-bottom">
-                                            <h6 class="m-0">Allergies/Diets</h6>
+                                            <h6 class="m-0">Аллергии/Диеты</h6>
                                         </div>
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item px-3">
                                                 <div class="mb-2">
-                                                    <strong class="text-muted d-block mb-3">Classification:</strong>
+                                                    <strong class="text-muted d-block mb-3">Классификация:</strong>
                                                     <div class="form-row">
                                                         <div class="form-group col-md-5">
                                                             <select multiple="multiple" id="health"
                                                                     class="form-control">
-                                                                <option value="alcohol-free"> Alcohol-free</option>
-                                                                <option value="celery-free"> Celery-free</option>
-                                                                <option value="crustacean-free"> Crustacean-free
+                                                                <option value="alcohol-free"> Без алкоголя</option>
+                                                                <option value="celery-free"> Без сельдерея</option>
+                                                                <option value="crustacean-free"> Без ракообразных
                                                                 </option>
-                                                                <option value="dairy-free"> Dairy-free</option>
+                                                                <option value="dairy-free"> Без молочных продуктов
+                                                                </option>
                                                                 <option value="DASH"> DASH</option>
-                                                                <option value="egg-free"> Egg-free</option>
-                                                                <option value="fish-free"> Fish-free</option>
-                                                                <option value="fodmap-free"> Fodmap-free</option>
-                                                                <option value="gluten-free"> Gluten-free</option>
-                                                                <option value="immuno-supportive"> Immuno-supportive
+                                                                <option value="egg-free"> Без яиц</option>
+                                                                <option value="fish-free"> Без рыбы</option>
+                                                                <option value="fodmap-free"> Без FODMAP</option>
+                                                                <option value="gluten-free"> Без глютена</option>
+                                                                <option value="immuno-supportive"> Иммуносистема
                                                                 </option>
-                                                                <option value="keto-friendly"> Keto-friendly</option>
-                                                                <option value="kidney-friendly"> Kidney-friendly
+                                                                <option value="keto-friendly"> Подходит для кето-диеты
                                                                 </option>
-                                                                <option value="kosher"> Kosher</option>
-                                                                <option value="low-fat-abs"> Low-fat-abs</option>
-                                                                <option value="low-potassium"> Low-potassium</option>
-                                                                <option value="low-sugar"> Low-sugar</option>
-                                                                <option value="lupine-free"> Lupine-free</option>
-                                                                <option value="Mediterranean"> Mediterranean</option>
-                                                                <option value="mollusk-free"> Mollusk-free</option>
-                                                                <option value="mustard-free"> Mustard-free</option>
-                                                                <option value="no-oil-added"> No-oil-added</option>
-                                                                <option value="paleo"> Paleo</option>
-                                                                <option value="peanut-free"> Peanut-free</option>
-                                                                <option value="pescatarian"> Pescatarian</option>
-                                                                <option value="pork-free"> Pork-free</option>
-                                                                <option value="red-meat-free"> Red-meat-free</option>
-                                                                <option value="sesame-free"> Sesame-free</option>
-                                                                <option value="shellfish-free"> Shellfish-free</option>
-                                                                <option value="soy-free"> Soy-free</option>
-                                                                <option value="sugar-conscious"> Sugar-conscious
+                                                                <option value="kidney-friendly"> Подходит для почек
                                                                 </option>
-                                                                <option value="sulfite-free"> Sulfite-free</option>
-                                                                <option value="tree-nut-free"> Tree-nut-free</option>
-                                                                <option value="vegan"> Vegan</option>
-                                                                <option value="vegetarian"> Vegetarian</option>
-                                                                <option value="wheat-free"> Wheat-free</option>
+                                                                <option value="kosher"> Кошерное</option>
+                                                                <option value="low-fat-abs"> Низкое содержание жира
+                                                                </option>
+                                                                <option value="low-potassium"> Низкое содержание калия
+                                                                </option>
+                                                                <option value="low-sugar"> Низкое содержание сахара
+                                                                </option>
+                                                                <option value="lupine-free"> Без люпина</option>
+                                                                <option value="Mediterranean"> Средиземноморская диета
+                                                                </option>
+                                                                <option value="mollusk-free"> Без моллюсков</option>
+                                                                <option value="mustard-free"> Без горчицы</option>
+                                                                <option value="no-oil-added"> Без добавления масла
+                                                                </option>
+                                                                <option value="paleo"> Палео</option>
+                                                                <option value="peanut-free"> Без арахиса</option>
+                                                                <option value="pescatarian"> Пескетарианская</option>
+                                                                <option value="pork-free"> Без свинины</option>
+                                                                <option value="red-meat-free"> Без красного мяса
+                                                                </option>
+                                                                <option value="sesame-free"> Без кунжута</option>
+                                                                <option value="shellfish-free"> Без ракообразных
+                                                                </option>
+                                                                <option value="soy-free"> Без сои</option>
+                                                                <option value="sugar-conscious"> Сахаросознательная
+                                                                </option>
+                                                                <option value="sulfite-free"> Без сульфитов</option>
+                                                                <option value="tree-nut-free"> Без орехов</option>
+                                                                <option value="vegan"> Веганская</option>
+                                                                <option value="vegetarian"> Вегетарианская</option>
+                                                                <option value="wheat-free"> Без пшеницы</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <strong class="text-muted d-block mb-3">Diet:</strong>
+                                                <strong class="text-muted d-block mb-3">Диета:</strong>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-5">
                                                         <select multiple="multiple" id="diet" class="form-control">
-                                                            <option value="balanced"> Balanced</option>
-                                                            <option value="high-fiber"> High-fiber</option>
-                                                            <option value="high-protein"> High-protein</option>
-                                                            <option value="low-carb"> Low-carb</option>
-                                                            <option value="low-fat"> Low-fat</option>
-                                                            <option value="low-sodium"> Low-sodium</option>
+                                                            <option value="balanced"> Сбалансированная</option>
+                                                            <option value="high-fiber"> Богатая клетчаткой</option>
+                                                            <option value="high-protein"> Высокобелковая</option>
+                                                            <option value="low-carb"> Низкоуглеводная</option>
+                                                            <option value="low-fat"> Низкожировая</option>
+                                                            <option value="low-sodium"> Низкосолевая</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
-                                    <!-- / Allergies/Diets -->
-                                    <!-- Calories -->
+                                    <!-- / Аллергии/Диеты -->
+                                    <!-- Калории -->
                                     <div class="card card-small mb-4" id="caloriesOptions" style="display: none;">
                                         <div class="card-header border-bottom">
-                                            <h6 class="m-0">Calories</h6>
+                                            <h6 class="m-0">Калории</h6>
                                         </div>
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item px-3">
                                                 <div class="mb-2">
-                                                    <strong class="text-muted d-block mb-3">Kcal:</strong>
+                                                    <strong class="text-muted d-block mb-3">Ккал:</strong>
                                                     <div class="form-row">
                                                         <div class="form-group col-md-5">
                                                             <input id="kcal" type="number" class="form-control"
-                                                                   placeholder="eg. 1200"
+                                                                   placeholder="например, 1200"
                                                                    aria-label="kcal" aria-describedby="basic-addon1"
                                                                    min="1"
                                                                    max="5000"
@@ -218,25 +229,24 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <!-- / Calories -->
+                                    <!-- / Калории -->
                                     <!-- Nutrients -->
                                     <div class="card card-small mb-4" id="nutrientsOptions" style="display: none;">
                                         <div class="card-header border-bottom">
-                                            <h6 class="m-0">Macronutrients</h6>
+                                            <h6 class="m-0">Макроэлементы</h6>
                                         </div>
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item px-3">
                                                 <div class="mb-2">
-                                                    <strong class="text-muted d-block mb-3">Default serving size is
-                                                        100g</strong>
+                                                    <strong class="text-muted d-block mb-3">Стандартный размер порции:
+                                                        100 г</strong>
                                                     <div class="form-row">
                                                         <div class="form-group col-md-5">
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="fatToggle" name="fatToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="fatToggle">Fat
-                                                                    (Unit:g)
-                                                                </label>
+                                                                <label class="custom-control-label" for="fatToggle">Жиры
+                                                                    (г)</label>
                                                                 <div id="fatSlider" class="mt-4" style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -245,13 +255,11 @@
                                                         </div>
                                                         <div class="form-group col-md-5">
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                                                <input type="checkbox" id="fatsatToggle"
+                                                                <input type checkbox id="fatsatToggle"
                                                                        name="fatsatToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="fatsatToggle">Fat
-                                                                    Saturated
-                                                                    (Unit:g)
-                                                                </label>
+                                                                <label class="custom-control-label" for="fatsatToggle">Насыщенные
+                                                                    жиры (г)</label>
                                                                 <div id="fatsatSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -264,10 +272,8 @@
                                                                 <input type="checkbox" id="fattrnToggle"
                                                                        name="fattrnToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="fattrnToggle">Fat
-                                                                    Trans
-                                                                    (Unit:g)
-                                                                </label>
+                                                                <label class="custom-control-label" for="fattrnToggle">Транс-жиры
+                                                                    (г)</label>
                                                                 <div id="fattrnSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -279,9 +285,8 @@
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="monoToggle" name="monoToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="monoToggle">Monounsaturated
-                                                                    (Unit:g)
-                                                                </label>
+                                                                <label class="custom-control-label" for="monoToggle">Одиночно-ненасыщенные
+                                                                    жиры (г)</label>
                                                                 <div id="monoSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -293,9 +298,8 @@
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="polyToggle" name="polyToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="polyToggle">Polyunsaturated
-                                                                    (Unit:g)
-                                                                </label>
+                                                                <label class="custom-control-label" for="polyToggle">Полиненасыщенные
+                                                                    жиры (г)</label>
                                                                 <div id="polySlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -307,9 +311,8 @@
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="carbToggle" name="carbToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="carbToggle">Carbohydrate
-                                                                    (Unit:g)
-                                                                </label>
+                                                                <label class="custom-control-label" for="carbToggle">Углеводы
+                                                                    (г)</label>
                                                                 <div id="carbSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -322,9 +325,8 @@
                                                                 <input type="checkbox" id="fiberToggle"
                                                                        name="fiberToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="fiberToggle">Fiber
-                                                                    (Unit:g)
-                                                                </label>
+                                                                <label class="custom-control-label" for="fiberToggle">Пищевые
+                                                                    волокна (г)</label>
                                                                 <div id="fiberSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -337,9 +339,8 @@
                                                                 <input type="checkbox" id="sugarToggle"
                                                                        name="sugarToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="sugarToggle">Sugar
-                                                                    (Unit:g)
-                                                                </label>
+                                                                <label class="custom-control-label" for="sugarToggle">Сахар
+                                                                    (г)</label>
                                                                 <div id="sugarSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -352,9 +353,8 @@
                                                                 <input type="checkbox" id="proteinToggle"
                                                                        name="proteinToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="proteinToggle">Protein
-                                                                    (Unit:g)
-                                                                </label>
+                                                                <label class="custom-control-label" for="proteinToggle">Белки
+                                                                    (г)</label>
                                                                 <div id="proteinSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -362,13 +362,12 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </li>
                                         </ul>
                                         <div class="card-header border-bottom">
-                                            <h6 class="m-0">Micronutrients</h6>
+                                            <h6 class="m-0">Микроэлементы</h6>
                                         </div>
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item px-3">
@@ -382,9 +381,8 @@
                                                                        name="cholesterolToggle"
                                                                        class="custom-control-input">
                                                                 <label class="custom-control-label"
-                                                                       for="cholesterolToggle">Cholesterol
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                       for="cholesterolToggle">Холестерин (Единицы:
+                                                                    мг)</label>
                                                                 <div id="cholesterolSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -397,9 +395,8 @@
                                                                 <input type="checkbox" id="sodiumToggle"
                                                                        name="sodiumToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="sodiumToggle">Sodium
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="sodiumToggle">Натрий
+                                                                    (Единицы: мг)</label>
                                                                 <div id="sodiumSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -412,9 +409,8 @@
                                                                 <input type="checkbox" id="calciumToggle"
                                                                        name="calciumToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="calciumToggle">Calcium
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="calciumToggle">Кальций
+                                                                    (Единицы: мг)</label>
                                                                 <div id="calciumSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -428,9 +424,8 @@
                                                                        name="magnesiumToggle"
                                                                        class="custom-control-input">
                                                                 <label class="custom-control-label"
-                                                                       for="magnesiumToggle">Magnesium
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                       for="magnesiumToggle">Магний (Единицы:
+                                                                    мг)</label>
                                                                 <div id="magnesiumSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -444,9 +439,7 @@
                                                                        name="potassiumToggle"
                                                                        class="custom-control-input">
                                                                 <label class="custom-control-label"
-                                                                       for="potassiumToggle">Potassium
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                       for="potassiumToggle">Калий (Единицы: мг)</label>
                                                                 <div id="potassiumSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -458,9 +451,8 @@
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="ironToggle" name="ironToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="ironToggle">Iron
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="ironToggle">Железо
+                                                                    (Единицы: мг)</label>
                                                                 <div id="ironSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -472,9 +464,8 @@
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="phosToggle" name="phosToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="phosToggle">Phosphorus
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="phosToggle">Фосфор
+                                                                    (Единицы: мг)</label>
                                                                 <div id="phosSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -486,10 +477,8 @@
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="vitaToggle" name="vitaToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="vitaToggle">Vitamin
-                                                                    A
-                                                                    (Unit:μg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="vitaToggle">Витамин
+                                                                    A (Единицы: мкг)</label>
                                                                 <div id="vitaSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -501,10 +490,8 @@
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="vitcToggle" name="vitcToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="vitcToggle">Vitamin
-                                                                    C
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="vitcToggle">Витамин
+                                                                    C (Единицы: мг)</label>
                                                                 <div id="vitcSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -514,11 +501,11 @@
                                                         </div>
                                                         <div class="form-group col-md-5">
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                                                <input type="checkbox" id="thiaminb1Toggle" name="thiaminb1Toggle"
+                                                                <input type="checkbox" id="thiaminb1Toggle"
+                                                                       name="thiaminb1Toggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="thiaminb1Toggle">Thiamin (B1)
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                <label class="custom-control-label"
+                                                                       for="thiaminb1Toggle">Тиамин (В1) (мг)</label>
                                                                 <div id="thiaminb1Slider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -528,11 +515,12 @@
                                                         </div>
                                                         <div class="form-group col-md-5">
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                                                <input type="checkbox" id="riboflavinB2Toggle" name="riboflavinB2Toggle"
+                                                                <input type="checkbox" id="riboflavinB2Toggle"
+                                                                       name="riboflavinB2Toggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="riboflavinB2Toggle">Riboflavin (B2)
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                <label class="custom-control-label"
+                                                                       for="riboflavinB2Toggle">Рибофлавин (В2)
+                                                                    (мг)</label>
                                                                 <div id="riboflavinB2Slider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -542,11 +530,11 @@
                                                         </div>
                                                         <div class="form-group col-md-5">
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                                                <input type="checkbox" id="niacinB3Toggle" name="niacinB3Toggle"
+                                                                <input type="checkbox" id="niacinB3Toggle"
+                                                                       name="niacinB3Toggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="niacinB3Toggle">Niacin (B3)
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                <label class="custom-control-label"
+                                                                       for="niacinB3Toggle">Ниацин (В3) (мг)</label>
                                                                 <div id="niacinB3Slider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -556,11 +544,11 @@
                                                         </div>
                                                         <div class="form-group col-md-5">
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                                                <input type="checkbox" id="vitB6Toggle" name="vitB6Toggle"
+                                                                <input type="checkbox" id="vitB6Toggle"
+                                                                       name="vitB6Toggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="vitB6Toggle">Vitamin B6
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="vitB6Toggle">Витамин
+                                                                    B6 (Единицы: мг)</label>
                                                                 <div id="vitB6Slider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -570,11 +558,11 @@
                                                         </div>
                                                         <div class="form-group col-md-5">
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                                                <input type="checkbox" id="folateToggle" name="folateToggle"
+                                                                <input type="checkbox" id="folateToggle"
+                                                                       name="folateToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="folateToggle">Folate (Equivalent)
-                                                                    (Unit:μg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="folateToggle">Фолиевая
+                                                                    кислота (Эквивалент) (Единицы: мкг)</label>
                                                                 <div id="folateSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -584,11 +572,11 @@
                                                         </div>
                                                         <div class="form-group col-md-5">
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                                                <input type="checkbox" id="vitb12Toggle" name="vitb12Toggle"
+                                                                <input type="checkbox" id="vitb12Toggle"
+                                                                       name="vitb12Toggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="vitb12Toggle">Vitamin B12
-                                                                    (Unit:μg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="vitb12Toggle">Витамин
+                                                                    B12 (Единицы: мкг)</label>
                                                                 <div id="vitb12Slider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -600,9 +588,8 @@
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="vitDToggle" name="vitDToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="vitDToggle">Vitamin D
-                                                                    (Unit:μg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="vitDToggle">Витамин
+                                                                    D (Единицы: мкг)</label>
                                                                 <div id="vitDSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -614,9 +601,8 @@
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="vitEToggle" name="vitEToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="vitEToggle">Vitamin E
-                                                                    (Unit:mg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="vitEToggle">Витамин
+                                                                    E (Единицы: мг)</label>
                                                                 <div id="vitESlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -628,9 +614,8 @@
                                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                                 <input type="checkbox" id="vitKToggle" name="vitKToggle"
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="vitKToggle">Vitamin K
-                                                                    (Unit:μg)
-                                                                </label>
+                                                                <label class="custom-control-label" for="vitKToggle">Витамин
+                                                                    K (Единицы: мкг)</label>
                                                                 <div id="vitKSlider" class="mt-4"
                                                                      style="display: none;">
                                                                     <input type="hidden" class="custom-slider-input">
@@ -643,6 +628,7 @@
                                             </li>
                                         </ul>
                                     </div>
+                                    <!-- / Nutrients -->
                                 </li>
                             </ul>
                         </div>
