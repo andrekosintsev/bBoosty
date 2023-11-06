@@ -1,7 +1,7 @@
-//let tg = window.Telegram.WebApp;
+let tg = window.Telegram.WebApp;
 
-//tg.expand();
-//tg.MainButton.hide();
+tg.expand();
+tg.MainButton.hide();
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);

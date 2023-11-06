@@ -24,7 +24,7 @@
                     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                         <span id="ruName"
                               class="text-uppercase page-subtitle"></span>
-                        <h3 id="enName" class="page-title">Настройки</h3>
+                        <h3 id="enName" class="page-title">Settings</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -35,72 +35,75 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
                                         <input id="username" type="text" class="form-control"
-                                               placeholder="не настроен username в telegram"
+                                               placeholder="Telegram username not configured"
                                                aria-label="kcal" aria-describedby="basic-addon1" disabled>
                                     </div>
                                 </div>
-                                <strong class="text-muted d-block">Имя:</strong>
-                                <div class="form-row">
+                                <strong class="text-muted d-block">First Name:</strong>
+                                <div a class="form-row">
                                     <div class="form-group col-md-5">
                                         <input id="firstName" type="text" class="form-control"
-                                               placeholder="Иван"
+                                               placeholder="Ivan"
                                                aria-label="firstName" aria-describedby="basic-addon1">
                                     </div>
                                 </div>
-                                <strong class="text-muted d-block">Фамилия:</strong>
+                                <strong class="text-muted d-block">Last Name:</strong>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
                                         <input id="lastName" type="text" class="form-control"
-                                               placeholder="Иванов"
+                                               placeholder="Ivanov"
                                                aria-label="lastName" aria-describedby="basic-addon1">
                                     </div>
                                 </div>
-                                <strong class="text-muted d-block">Твой уровень:</strong>
+                                <strong class="text-muted d-block">Your Level:</strong>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
                                         <select id="difficulty"
                                                 class="form-control">
-                                            <option value="beginner">Новичок</option>
-                                            <option value="intermediate">Средний</option>
-                                            <option value="expert">Эксперт</option>
+                                            <option value="beginner">Beginner</option>
+                                            <option value="intermediate">Intermediate</option>
+                                            <option value="expert">Expert</option>
                                         </select>
                                     </div>
                                 </div>
-                                <strong class="text-muted d-block">Тренажеры в наличии:</strong>
+                                <strong class="text-muted d-block">Available Equipment:</strong>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
                                         <select id="equipments" multiple="multiple"
                                                 class="form-control">
-                                            <option value="a3f03638-6a38-4674-b8f5-5eb9f7a7f412">Гантели</option>
-                                            <option value="a3f03638-6a38-4674-b8f5-5eb9f7a7f411">Штанги</option>
-                                            <option value="a3f03638-6a38-4674-b8f5-5eb9f7a7f421">Комплексные тренажеры (машины)</option>
-                                            <option value="a3f03628-6a38-4674-b8f5-5eb9f7a7f421">Медицинский/набивной мяч</option>
-                                            <option value="a3f03628-6a38-4674-b8f5-5eb9f7a8f421">Пенорулон</option>
-                                            <option value="a3f03628-6a38-4674-b8fa-5eb9f7a8f421">Шар для упражнений</option>
-                                            <option value="a3f0a628-6a38-4674-b8fa-5eb9f7a8f421">Гири</option>
-                                            <option value="a3f0a628-6a38-4674-b8fa-5eb9f7a8a421">Только с собственным телом</option>
-                                            <option value="a3f0a511-6a38-4674-b8fa-5eb9f7a8c421">Резинки</option>
+                                            <option value="a3f03638-6a38-4674-b8f5-5eb9f7a7f412">Dumbbells</option>
+                                            <option value="a3f03638-6a38-4674-b8f5-5eb9f7a7f411">Barbells</option>
+                                            <option value="a3f03638-6a38-4674-b8f5-5eb9f7a7f421">Complex Machines
+                                            </option>
+                                            <option value="a3f03628-6a38-4674-b8f5-5eb9f7a7f421">Medicine/Balance Ball
+                                            </option>
+                                            <option value="a3f03628-6a38-4674-b8f5-5eb9f7a8f421">Foam Roller</option>
+                                            <option value="a3f03628-6a38-4674-b8fa-5eb9f7a8f421">Exercise Ball</option>
+                                            <option value="a3f0a628-6a38-4674-b8fa-5eb9f7a8f421">Kettlebells</option>
+                                            <option value="a3f0a628-6a38-4674-b8fa-5eb9f7a8a421">Bodyweight Only
+                                            </option>
+                                            <option value="a3f0a511-6a38-4674-b8fa-5eb9f7a8c421">Resistance Bands
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
-                                <strong class="text-muted d-block">Предпочитаемый тип упражнений:</strong>
+                                <strong class="text-muted d-block">Preferred Exercise Types:</strong>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
                                         <select id="types" multiple="multiple"
                                                 class="form-control">
-                                            <option value="strength">Cиловые</option>
-                                            <option value="cardio">Кардио</option>
-                                            <option value="powerlifting">Пауэрлифтинг</option>
-                                            <option value="stretching">Растяжка/Стретчинг</option>
-                                            <option value="plyometrics">Плиометрика</option>
-                                            <option value="olympic_weightlifting">Олимпийская Тяжелая Атлетика</option>
+                                            <option value="strength">Strength</option>
+                                            <option value="cardio">Cardio</option>
+                                            <option value="powerlifting">Powerlifting</option>
+                                            <option value="stretching">Stretching</option>
+                                            <option value="plyometrics">Plyometrics</option>
+                                            <option value="olympic_weightlifting">Olympic Weightlifting</option>
                                             <option value="strongman">Strongman</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

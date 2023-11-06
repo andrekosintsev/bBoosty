@@ -2,7 +2,7 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 
-tg.MainButton.setText("Сохранить");
+tg.MainButton.setText("Update Account");
 tg.MainButton.show();
 
 function getQueryParam(name) {

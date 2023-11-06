@@ -1,7 +1,7 @@
 let tg = window.Telegram.WebApp;
 
 tg.expand();
-tg.MainButton.text = "Сохранить сеты";
+tg.MainButton.text = "Save Sets";
 tg.MainButton.show();
 
 let rowCount = 1;
@@ -38,19 +38,19 @@ function populateFormForEditing(entry) {
             switch (entry.exercise.difficulty) {
                 case 'beginner':
                     document.getElementById("difficulty").classList.add("badge-info");
-                    document.getElementById("difficulty").textContent = "новичок";
+                    document.getElementById("difficulty").textContent = "beginner";
                     break;
                 case 'intermediate':
                     document.getElementById("difficulty").classList.add("badge-warning");
-                    document.getElementById("difficulty").textContent = "средний";
+                    document.getElementById("difficulty").textContent = "intermediate";
                     break;
                 case 'expert':
                     document.getElementById("difficulty").classList.add("badge-danger");
-                    document.getElementById("difficulty").textContent = "эксперт";
+                    document.getElementById("difficulty").textContent = "expert";
                     break;
                 default:
                     document.getElementById("difficulty").classList.add("badge-info");
-                    document.getElementById("difficulty").textContent = "новичок";
+                    document.getElementById("difficulty").textContent = "beginner";
                     break;
             }
         }
@@ -104,7 +104,7 @@ function populateFormForEditing(entry) {
                 weightInput.addEventListener('input', function() {
                     if (this.value < 0) {
                         this.value = 0;
-                    } else if (this.value > 530) {
+                    } else if this.value > 530) {
                         this.value = 530;
                     }
                 });
@@ -122,7 +122,7 @@ const collectedData = [];
 function hideAnother(nameActive) {
     [instruction, set].forEach(item => {
         if (nameActive === item) {
-            document.getElementById(item.id + 'Options').style.display = 'block';
+            document.getElementById(item.id + 'Options').style display = 'block';
             item.classList.add("btn-primary");
             item.classList.remove("btn-white");
         } else {
@@ -158,7 +158,7 @@ document.getElementById('addRow').addEventListener('click', function() {
             const index = Array.from(row.parentElement.rows).indexOf(row);
             row.remove();
             rowCount--;
-            for (let i = index; i < setList.rows.length; i++) {
+            for let i = index; i < setList.rows.length; i++) {
                 setList.rows[i].cells[0].innerHTML = `<div class="form-group mt-2">${i + 1}</div>`;
             }
             collectedData.splice(index, 1);
@@ -166,7 +166,7 @@ document.getElementById('addRow').addEventListener('click', function() {
         const repeatInput = cell2.querySelector('input');
         repeatInput.addEventListener('input', function() {
             if (this.value < 0) {
-                this.value = 0;
+                this value = 0;
             } else if (this.value > 50) {
                 this.value = 50;
             }
@@ -182,8 +182,8 @@ document.getElementById('addRow').addEventListener('click', function() {
         rowCount++;
     } else {
         tg.showPopup({
-            title: 'Максимальное количество сетов достигнуто',
-            message: 'Мне кажется вы уработались на этом упражнении, переходите к другому упражнению!',
+            title: 'Maximum number of sets reached',
+            message: 'It seems you have exhausted this exercise. Move on to another exercise!',
             buttons: [{
                 id: 'ok',
                 text: 'Okay'
@@ -193,16 +193,16 @@ document.getElementById('addRow').addEventListener('click', function() {
 });
 
 document.getElementById('change').addEventListener('click', function() {
-    let text = document.getElementById('neverRecommend').checked ? 'Замена упражнения в программе и удаление из рекомендации' : 'Замена упражнения в программе';
+    let text = document.getElementById('neverRecommend').checked ? 'Replace exercise in program and remove from recommendations' : 'Replace exercise in program';
     tg.showPopup({
         title: text,
-        message: 'Вы уверены что хотите заменить упражнение?',
+        message: 'Are you sure you want to replace the exercise?',
         buttons: [{
             id: 'ok',
-            text: 'Да'
+            text: 'Yes'
         }, {
             id: 'cancel',
-            text: 'Отмена'
+            text: 'Cancel'
         }]
     }, function(buttonId) {
         if ('ok' === buttonId) {
@@ -220,16 +220,16 @@ document.getElementById('change').addEventListener('click', function() {
 });
 
 document.getElementById('delete').addEventListener('click', function() {
-    let text = document.getElementById('neverRecommend').checked ? 'Полное удаление и невозможность рекомендации' : 'Удаление из этой программы';
+    let text = document.getElementById('neverRecommend').checked ? 'Complete removal and inability to recommend' : 'Removal from this program';
     tg.showPopup({
         title: text,
-        message: 'Вы уверены что хотите удалить упражнение?',
+        message: 'Are you sure you want to delete the exercise?',
         buttons: [{
             id: 'ok',
-            text: 'Да'
+            text: 'Yes'
         }, {
             id: 'cancel',
-            text: 'Отмена'
+            text: 'Cancel'
         }]
     }, function(buttonId) {
         if ('ok' === buttonId) {
