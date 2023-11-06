@@ -104,7 +104,7 @@ function populateFormForEditing(entry) {
                 weightInput.addEventListener('input', function() {
                     if (this.value < 0) {
                         this.value = 0;
-                    } else if this.value > 530) {
+                    } else if (this.value > 530) {
                         this.value = 530;
                     }
                 });
@@ -122,7 +122,7 @@ const collectedData = [];
 function hideAnother(nameActive) {
     [instruction, set].forEach(item => {
         if (nameActive === item) {
-            document.getElementById(item.id + 'Options').style display = 'block';
+            document.getElementById(item.id + 'Options').style.display = 'block';
             item.classList.add("btn-primary");
             item.classList.remove("btn-white");
         } else {
@@ -158,7 +158,7 @@ document.getElementById('addRow').addEventListener('click', function() {
             const index = Array.from(row.parentElement.rows).indexOf(row);
             row.remove();
             rowCount--;
-            for let i = index; i < setList.rows.length; i++) {
+            for (let i = index; i < setList.rows.length; i++) {
                 setList.rows[i].cells[0].innerHTML = `<div class="form-group mt-2">${i + 1}</div>`;
             }
             collectedData.splice(index, 1);
@@ -166,7 +166,7 @@ document.getElementById('addRow').addEventListener('click', function() {
         const repeatInput = cell2.querySelector('input');
         repeatInput.addEventListener('input', function() {
             if (this.value < 0) {
-                this value = 0;
+                this.value = 0;
             } else if (this.value > 50) {
                 this.value = 50;
             }
