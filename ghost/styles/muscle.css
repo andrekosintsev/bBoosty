@@ -1,0 +1,22 @@
+.muscle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.muscle-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+.muscle-card h4 {
+    font-size: 18px;
+}
+
+.muscle-card p {
+    font-size: 14px;
+    color: #555;
+}
