@@ -63,10 +63,19 @@ function populateFormForEditing(entry) {
         if (entry.exercise.video) {
             document.getElementById("video").src = entry.exercise.video;
             document.getElementById("video").style.display = 'block';
+            document.getElementById("video").style.width = '100%';
         } else {
-            document.getElementById("videoReplace").style.backgroundImage = "url('https://images.unsplash.com/photo-1610513320995-1ad4bbf25e55?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
-            document.getElementById("videoReplace").style.display = 'block';
+            document.getElementById("noContent").src = "images/not_available.gif";
+            document.getElementById("noContent").style.display = 'block';
+            document.getElementById("noContent").style.width = '100%';
         }
+        if (entry.exercise.gifUrl) {
+            document.getElementById("gif").src = entry.exercise.gifUrl;
+        } else {
+            document.getElementById("gif").src = "images/not_available.gif";
+        }
+        document.getElementById("gif").style.display = 'block';
+
         if (entry.trainingSet.data) {
             const setList = document.getElementById('sets');
 
@@ -136,6 +145,13 @@ function hideAnother(nameActive) {
 [instruction, set].forEach(item => {
     item.addEventListener('click', function() {
         hideAnother(item);
+        if(item === instruction) {
+           document.getElementById("videoContent").style.display = 'block';
+           document.getElementById("gif").style.display = 'none';
+        } else {
+           document.getElementById("videoContent").style.display = 'none';
+           document.getElementById("gif").style.display = 'block';
+        }
     });
 });
 

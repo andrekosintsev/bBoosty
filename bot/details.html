@@ -32,10 +32,14 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                         <div class="card card-small card-post card-post--1">
-                            <iframe style="display: none;" id="video" class="card-post__image"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
-                            </iframe>
-                            <div id="videoReplace" class="card-post__image" style="display: none;">
+
+                            <img style="display: none;" id="gif" class="card-post__image"/>
+                            <!-- Your first iframe content -->
+                            <div id="videoContent" style="display: none;">
+                                <iframe style="display: none;" id="video" class="card-post__image"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+                                </iframe>
+                                <img style="display: none;" id="noContent" class="card-post__image"/>
                             </div>
                             <a id="difficulty" href="#" class="card-post__category badge badge-pill badge-info">intermediate</a>
                             <div class="card-body">
