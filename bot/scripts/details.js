@@ -237,7 +237,7 @@ document.getElementById('change').addEventListener('click', function() {
     });
 });
 
-document.getElementById('myversion').addEventListener('click', function() {
+document.getElementById('feedback').addEventListener('click', function() {
     tg.showPopup({
         title: text,
         message: 'Do you have feedback or would you like to share your own instructions, images, or videos for this exercise?',
