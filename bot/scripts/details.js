@@ -237,6 +237,29 @@ document.getElementById('change').addEventListener('click', function() {
     });
 });
 
+document.getElementById('myversion').addEventListener('click', function() {
+    tg.showPopup({
+        title: text,
+        message: 'Do you have feedback or would you like to share your own instructions, images, or videos for this exercise?',
+        buttons: [{
+            id: 'ok',
+            text: 'Yes'
+        }, {
+            id: 'cancel',
+            text: 'Cancel'
+        }]
+    }, function(buttonId) {
+        if ('ok' === buttonId) {
+            tg.sendData(JSON.stringify({
+                feedback: {
+                    id: document.getElementById('id').value,
+                }
+            }));
+            tg.close();
+        }
+    });
+});
+
 document.getElementById('delete').addEventListener('click', function() {
     let text = document.getElementById('neverRecommend').checked ? 'Complete removal and inability to recommend' : 'Removal from this program';
     tg.showPopup({
