@@ -70,9 +70,11 @@ function populateFormForEditing(entry) {
             document.getElementById("noContent").style.width = '100%';
         }
         if (entry.exercise.gifUrl) {
-            document.getElementById("gif").src = entry.exercise.gifUrl;
+            document.getElementById("gifImage").src = entry.exercise.gifUrl;
         } else {
-            document.getElementById("gif").src = "images/not_available.gif";
+            document.getElementById("gifImage").src = "images/not_available.gif";
+             document.getElementById("gifImage").style.width = "-webkit-fill-available";
+              document.getElementById("gifImage").style.height = "-webkit-fill-available";
         }
         document.getElementById("gif").style.display = 'block';
 
