@@ -73,8 +73,7 @@ function populateFormForEditing(entry) {
             document.getElementById("gifImage").src = entry.exercise.gifUrl;
         } else {
             document.getElementById("gifImage").src = "images/not_available.gif";
-             document.getElementById("gifImage").style.width = "-webkit-fill-available";
-              document.getElementById("gifImage").style.height = "-webkit-fill-available";
+            document.getElementById("gifImage").style.width = "-webkit-fill-available";
         }
         document.getElementById("gif").style.display = 'block';
 
@@ -147,12 +146,12 @@ function hideAnother(nameActive) {
 [instruction, set].forEach(item => {
     item.addEventListener('click', function() {
         hideAnother(item);
-        if(item === instruction) {
-           document.getElementById("videoContent").style.display = 'block';
-           document.getElementById("gif").style.display = 'none';
+        if (item === instruction) {
+            document.getElementById("videoContent").style.display = 'block';
+            document.getElementById("gif").style.display = 'none';
         } else {
-           document.getElementById("videoContent").style.display = 'none';
-           document.getElementById("gif").style.display = 'block';
+            document.getElementById("videoContent").style.display = 'none';
+            document.getElementById("gif").style.display = 'block';
         }
     });
 });
