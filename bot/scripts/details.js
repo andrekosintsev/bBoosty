@@ -239,7 +239,7 @@ document.getElementById('change').addEventListener('click', function() {
 
 document.getElementById('feedback').addEventListener('click', function() {
     tg.showPopup({
-        title: text,
+        title: 'Provide your version',
         message: 'Do you have feedback or would you like to share your own instructions, images, or videos for this exercise?',
         buttons: [{
             id: 'ok',
