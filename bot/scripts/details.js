@@ -168,8 +168,8 @@ document.getElementById('addRow').addEventListener('click', function() {
         const cell4 = newRow.insertCell(3);
 
         cell1.innerHTML = `<div class="form-group mt-2">${rowCount}</div>`;
-        cell2.innerHTML = '<div class="form-group"><input type="number" class="form-control" placeholder="10"> </div>';
-        cell3.innerHTML = '<div class="form-group"><input type="number" class="form-control" placeholder="100"> </div>';
+        cell2.innerHTML = '<div class="form-group"><input inputmode="numeric" type="number" class="form-control" placeholder="10"> </div>';
+        cell3.innerHTML = '<div class="form-group"><input inputmode="numeric" type="number" class="form-control" placeholder="100"> </div>';
         cell4.innerHTML = '<i class="btn-sm btn-danger material-icons pb-1 pt-1" style="font-size: large; position: static;">delete_forever</i>';
         cell4.querySelector('i').addEventListener('click', function() {
             const row = this.parentElement.parentElement;
