@@ -71,6 +71,7 @@ function populateFormForEditing(entry) {
         }
         if (entry.exercise.gifUrl) {
             document.getElementById("gifImage").src = entry.exercise.gifUrl;
+            document.getElementById("gifImage").style.width = "-webkit-fill-available";
         } else {
             document.getElementById("gifImage").src = "images/not_available.gif";
             document.getElementById("gifImage").style.width = "-webkit-fill-available";
