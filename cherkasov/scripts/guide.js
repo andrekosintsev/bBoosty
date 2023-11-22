@@ -1,7 +1,7 @@
 let tg = window.Telegram.WebApp;
 
 tg.expand();
-tg.MainButton.text = "Получить ссылку на гайд";
+tg.MainButton.text = "Оставить заявку на руководство";
 tg.MainButton.show();
 
 const selectedIds = [];
