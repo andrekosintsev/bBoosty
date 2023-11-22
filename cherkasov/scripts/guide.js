@@ -87,7 +87,7 @@ function createMuscleCard(muscle) {
             <p class="card-text d-inline-block mb-3">${muscle.description}</p>
             <span class="text-muted">
                 <button id="${muscle.id}" type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary mr-2">
-                    <i class="material-icons mr-1" style="display: none;">check</i>Купить 5000 ₽
+                    <i class="material-icons mr-1" style="display: none;">check</i>Выбрать
                 </button>
             </span>
         </div>
