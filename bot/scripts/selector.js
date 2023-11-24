@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (pathElement.classList) {
                         pathElement.classList.remove("hover");
                     }
+                    document.getElementById("select").textContent = 'Choose a Muscle Section';
                 });
                 muscleElement.addEventListener('click', function () {
                     const pathElement = muscleElement.querySelector('path');
