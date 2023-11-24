@@ -1,0 +1,30 @@
+$black: #333;
+$white: #eee;
+$color-1: #00BCD4;
+$label-z: 200;
+$svg-z: 100;
+svg {
+            position: absolute;
+            right: -1.5rem;
+            bottom: 3rem;
+            height: 350px;
+            z-index: $svg-z;
+}
+svg g[id] path {
+            opacity: .2;
+            transition: opacity .25s ease-in-out;
+}
+          svg g g[id]:hover path {
+            cursor: pointer;
+            opacity: .5;
+            fill: red !important;
+          }
+
+.muscle-groups {
+  position: relative;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 0 rgba(black, .5);
+  overflow: hidden;
+  border-top: .75rem solid $color-1;
+}

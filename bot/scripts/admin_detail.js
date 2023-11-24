@@ -41,15 +41,22 @@ function createMuscleCard(muscle) {
     const muscleCard = document.createElement("div");
     muscleCard.classList.add("card", "card-small", "card-post", "card-post--1");
     muscleCard.innerHTML = `
-        <iframe src="${muscle.video}" class="card-post__image" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
-            <a href="#" class="card-post__category badge badge-pill badge-info">${muscle.id}</a>
-        </iframe>
+        <div class="row">
+            <img src="${muscle.gifUrl}" style="width: 200px; height: 200px;"/>
+            <iframe src="${muscle.video}" class="card-post__image" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+                <a href="#" class="card-post__category badge badge-pill badge-info">${muscle.id}</a>
+            </iframe>
+        </div>
         <div class="card-body">
         <div class="form-group">
             <input class="form-control" id="name" value="${muscle.name}" disabled/>
         </div>
         <div class="form-group">
-            <input class="form-control" id="exDbId" value="${muscle.exDbId}"/>
+                <select id="difficulty" class="form-control">
+                    <option value="beginner" ${muscle.difficulty === 'beginner' ? 'selected' : ''}>Beginner</option>
+                    <option value="intermediate" ${muscle.difficulty === 'intermediate' ? 'selected' : ''}>Intermediate</option>
+                    <option value="expert" ${muscle.difficulty === 'expert' ? 'selected' : ''}>Expert</option>
+                </select>
         </div>
         <div class="form-group">
             <input class="form-control" id="muscle" value="${muscle.muscle}" disabled/>
@@ -58,7 +65,15 @@ function createMuscleCard(muscle) {
             <input class="form-control" id="video" value="${muscle.video}"/>
         </div>
         <div class="form-group">
-            <input class="form-control" id="difficulty" value="${muscle.difficulty}" disabled/>
+             <select id="types" class="form-control">
+                 <option value="strength" ${muscle.type === 'strength' ? 'selected' : ''}>Strength</option>
+                 <option value="cardio" ${muscle.type === 'cardio' ? 'selected' : ''}>Cardio</option>
+                 <option value="powerlifting" ${muscle.type === 'powerlifting' ? 'selected' : ''}>Powerlifting</option>
+                 <option value="stretching" ${muscle.type === 'stretching' ? 'selected' : ''}>Stretching</option>
+                 <option value="plyometrics" ${muscle.type === 'plyometrics' ? 'selected' : ''}>Plyometrics</option>
+                 <option value="olympic_weightlifting" ${muscle.type === 'olympic_weightlifting' ? 'selected' : ''}>Olympic Weightlifting</option>
+                 <option value="strongman" ${muscle.type === 'strongman' ? 'selected' : ''}>Strongman</option>
+             </select>
         </div>
         <div class="form-group">
             <textarea type="area" class="form-control" id="${muscle.id}"> </textarea>
@@ -93,24 +108,19 @@ function createMuscleCard(muscle) {
                 name: muscle.name,
                 id: muscle.id
             };
-            const exDbIdValue = muscleCard.getElementsByClassName('form-control')[1].value;
-            if (exDbIdValue !== undefined && exDbIdValue !== null && exDbIdValue!=="null") {
-                jsonObject.exDbId = exDbIdValue;
+            const difficulty = muscleCard.getElementsByClassName('form-control')[1].value;
+            if (difficulty !== undefined && difficulty !== null && difficulty!=="null") {
+                jsonObject.difficulty = difficulty;
             }
 
-            const videoValue = muscleCard.getElementsByClassName('form-control')[3].value;
-            if (videoValue !== undefined && videoValue !== null  && videoValue!=="null") {
-                jsonObject.video = videoValue;
+            const video = muscleCard.getElementsByClassName('form-control')[3].value;
+            if (video !== undefined && video !== null  && video!=="null") {
+                jsonObject.video = video;
             }
-             const muscleValue = muscleCard.getElementsByClassName('form-control')[2].value;
-             if (muscleValue !== undefined && muscleValue !== null  && muscleValue!=="null") {
-                    jsonObject.muscle = muscleValue;
+             const type = muscleCard.getElementsByClassName('form-control')[4].value;
+             if (type !== undefined && type !== null  && type!=="null") {
+                    jsonObject.type = type;
              }
-
-            const instructionsValue = textAreaElement.value();
-            if (instructionsValue !== undefined && instructionsValue !== null && instructionsValue!=="null") {
-                jsonObject.instructions = instructionsValue;
-            }
             fetch('http://localhost:8084/muscle', {
                                     method: 'POST',
                                     headers: {
@@ -119,57 +129,10 @@ function createMuscleCard(muscle) {
                                     body: JSON.stringify(jsonObject)
                                 }).then(response => response.json())
                                 .then(responseData => {
-                                     muscleCard.getElementsByClassName('form-control')[1].value=responseData.exDbId;
-                                     muscleCard.muscleCard.getElementsByClassName('form-control')[3].value=responseData.video;
-                                     textAreaElement.value(responseData.instructions || "");
+                                     muscleCard.innerHTML = '';
+                                     createMuscleCard(responseData);
                                 }).catch(error => {});
         });
-    element.appendChild(muscleCard);
-    return element;
-}
-
-document.getElementById('similar').addEventListener("click", function() {
-        const jsonObject = {
-            name: document.getElementById('similarName').value,
-            muscle: document.getElementById('muscleName').value
-        };
-        fetch('http://localhost:8084/similar', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(jsonObject)
-                            }).then(response => response.json())
-                            .then(responseData => {
-                                  similarResult.innerHTML = '';
-                                  responseData.forEach(muscle => {
-                                                 const muscleCard = createMuscleCardEx(muscle);
-                                                 similarResult.appendChild(muscleCard);
-                                           });
-
-                            }).catch(error => {});
-    });
-
-function createMuscleCardEx(muscle) {
-    const element = document.createElement("div");
-    element.classList.add("col-sm-12", "mb-4");
-    const muscleCard = document.createElement("div");
-    muscleCard.classList.add("card", "card-small", "card-post", "card-post--1");
-    muscleCard.innerHTML = `
-        <div class="row">
-        <img src="${muscle.gifUrl}" style="width: 200px; height: 200px;"/>
-        <div class="card-body">
-        <div class="form-group">
-            <input class="form-control" id="name" value="${muscle.name}" disabled/>
-        </div>
-        <div class="form-group">
-            <input class="form-control" id="name" value="${muscle.exDbId}" disabled/>
-        </div>
-        <div class="form-group">
-            <input class="form-control" id="muscle" value="${muscle.target}" disabled/>
-        </div>
-        </div>
-    `;
     element.appendChild(muscleCard);
     return element;
 }
