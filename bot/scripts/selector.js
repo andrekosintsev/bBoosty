@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (pathElement.classList) {
                         pathElement.classList.remove("hover");
                     }
-                    document.getElementById("select").textContent = 'Choose a Muscle Section';
+                    document.getElementById("select").textContent = 'Choose a Muscle';
                 });
                 muscleElement.addEventListener('click', function () {
                     const pathElement = muscleElement.querySelector('path');
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Event handler for the main button click
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     const pageTitleText = document.getElementById("select").textContent;
-    if (pageTitleText==="Choose a Muscle Section") {
+    if (pageTitleText==="Choose a Muscle") {
             // Display a message to choose a category if none is selected
                     tg.showPopup({
                         title: 'Choose a Category',
