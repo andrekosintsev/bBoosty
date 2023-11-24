@@ -6,7 +6,7 @@ tg.expand();
 
 // Set the main button text and make it visible
 tg.MainButton.text = "Select Program";
-tg.MainButton.show();
+
 
 document.addEventListener('DOMContentLoaded', function () {
             // Get all muscle group IDs
@@ -40,6 +40,16 @@ document.addEventListener('DOMContentLoaded', function () {
                         pathElement.classList.remove("hover");
                     }
                 });
+                muscleElement.addEventListener('click', function () {
+                    const pathElement = muscleElement.querySelector('path');
+                    if (pathElement.classList) {
+                        pathElement.classList.add("hover");
+                    } else {
+                        pathElement.className += ' ' + "hover";
+                    }
+                        document.getElementById("select").textContent = muscleId;
+                    });
+                    tg.MainButton.show();
             });
         });
 
