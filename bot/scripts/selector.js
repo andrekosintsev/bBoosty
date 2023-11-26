@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     } else {
                         pathElement.className += ' ' + "hover";
                     }
-                        document.getElementById("select").textContent = muscleId;
-                    });
+                    document.getElementById("select").textContent = muscleId;
                     tg.MainButton.show();
+                });
             });
         });
 

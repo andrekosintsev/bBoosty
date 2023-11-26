@@ -14,11 +14,11 @@ svg g[id] path {
             opacity: .2;
             transition: opacity .25s ease-in-out;
 }
-          svg g g[id]:hover path {
+svg g g[id]:hover path {
             cursor: pointer;
             opacity: .5;
             fill: red !important;
-          }
+}
 
 .muscle-groups {
   position: relative;
