@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Trapezius', 'Lats', 'Triceps', 'Forearms',
                 'Glutes', 'Hamstrings', 'Calves', 'Deltoids',
                 'Biceps', 'Pectorals', 'Abs',
-                'Quads', 'Adductors','Neck','Abductors','Spine', 'Serratus Anterior', 'Upper back'
+                'Quads', 'Adductors','Levator Scapulae','Abductors','Spine', 'Serratus Anterior', 'Upper back'
             ];
 
             // Add mouseover event listener to each muscle group
