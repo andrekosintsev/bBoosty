@@ -76,7 +76,10 @@ function createMuscleCard(muscle) {
              </select>
         </div>
         <div class="form-group">
-            <textarea type="area" class="form-control" id="${muscle.id}"> </textarea>
+                    <input class="form-control" id="priority" value="${muscle.priority}">
+        </div>
+        <div class="form-group">
+            <textarea type="area" class="form-control" id="${muscle.instructions}"> </textarea>
         </div>
             <span class="text-muted">
                 <button id="update" type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary mr-2">
@@ -120,6 +123,10 @@ function createMuscleCard(muscle) {
              const type = muscleCard.getElementsByClassName('form-control')[4].value;
              if (type !== undefined && type !== null  && type!=="null") {
                     jsonObject.type = type;
+             }
+             const priority = muscleCard.getElementsByClassName('form-control')[5].value;
+             if (priority !== undefined && priority !== null  && priority!=="null") {
+                 jsonObject.priority = priority;
              }
             fetch('http://localhost:8084/muscle', {
                                     method: 'POST',
