@@ -34,7 +34,7 @@ const selectedIds = [];
 function createMuscleCard(muscle) {
     const muscleCard = document.createElement("div");
     muscleCard.innerHTML = `
-        <div class="col-lg-3 col-sm-12 mb-2">
+        <div class="col-lg-4 col-sm-12 mb-2">
                             <div class="card card-small card-post card-post--aside card-post--1">
                                 <div class="card-post__image" style="background-image: url('${muscle.gifUrl}');">
                                     <a href="#" class="card-post__category badge badge-pill badge-info">${muscle.difficulty}</a>
