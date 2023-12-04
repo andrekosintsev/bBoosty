@@ -37,22 +37,18 @@ function createMuscleCard(muscle) {
         <div class="col-lg-4 col-sm-12 mb-2">
                             <div class="card card-small card-post card-post--aside card-post--1">
                                 <div class="card-post__image" style="background-image: url('${muscle.gifUrl}');">
-                                    <a href="#" class="card-post__category badge badge-pill badge-info">${muscle.difficulty}</a>
-                                    <div class="card-post__author d-flex mb-5">
-                                         <p class="card-text d-inline-block mb-3"><strong>Equipment:</strong><br> ${muscle.equipment}</p>
-                                    </div>
-                                     <div class="card-post__author d-flex">
-                                            <button id="${muscle.id}" type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary mr-2">
-                                                <i class="material-icons mr-1" style="display: none;">check</i>Add
-                                            </button>
-                                     </div>
-
+                                       <a href="#" class="card-post__category badge badge-pill badge-info">${muscle.difficulty}</a>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">
+                                    <h6 class="card-title">
                                         <a class="text-fiord-blue" href="#">${muscle.name}</a>
-                                    </h5>
+                                    </h6>
+                                    <p class="card-text d-inline-block mb-3"><strong>Equipment:</strong> ${muscle.equipment}</p>
                                     <p><strong>Rating:</strong> ${generateRatingStars(muscle.rating)}</p>
+                                     <button id="${muscle.id}" type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary mr-2">
+                                                                                    <i class="material-icons mr-1" style="display: none;">check</i>Add
+                                     </button>
+
                                 </div>
                             </div>
                         </div>
