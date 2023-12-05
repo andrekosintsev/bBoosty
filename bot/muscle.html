@@ -13,6 +13,39 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.css">
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+    /* Add your styling here if needed */
+    .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -10px; /* Adjust margin based on your styling */
+    }
+
+    .grid-item {
+        flex: 0 0 calc(50% - 20px); /* Adjust width based on your styling */
+        margin: 10px; /* Adjust margin based on your styling */
+        box-sizing: border-box;
+        cursor: pointer; /* Add cursor style for better UX */
+        position: relative; /* Add position relative for absolute positioning of selection effect */
+    }
+
+    .grid-item.selected::after {
+        content: ""; /* Create an empty pseudo-element */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid #007bff; /* Add your desired border color for selection */
+        box-sizing: border-box;
+        pointer-events: none; /* Allow clicks to pass through the border */
+        border-bottom-left-radius: 0.625rem;
+        border-bottom-right-radius: 0.625rem;
+        border-top-left-radius: 0.625rem;
+        border-top-right-radius: 0.625rem;
+    }
+</style>
+
 </head>
 <body class="h-100">
 <div class="container-fluid">

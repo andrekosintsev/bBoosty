@@ -20,10 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (encodedJsonData) {
         const jsonData = decodeURIComponent(encodedJsonData);
         const jsonArray = JSON.parse(jsonData);
-        jsonArray.forEach((muscle) => {
-            const muscleCard = createMuscleCard(muscle);
-            muscleGrid.appendChild(muscleCard);
-        });
+        muscleGrid.appendChild(createMuscleCard(jsonArray));
     }
 });
 
@@ -31,49 +28,33 @@ document.addEventListener("DOMContentLoaded", function() {
 const selectedIds = [];
 
 // Function to create a muscle card element
-function createMuscleCard(muscle) {
+function createMuscleCard(elements) {
     const muscleCard = document.createElement("div");
-    muscleCard.innerHTML = `
-        <div class="col-lg-4 col-sm-12 mb-2">
-                            <div class="card card-small card-post card-post--aside card-post--1">
-                                <div class="card-post__image" style="background-image: url('${muscle.gifUrl}');">
-                                       <a href="#" class="card-post__category badge badge-pill badge-info">${muscle.difficulty}</a>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-title">
-                                        <a class="text-fiord-blue" href="#">${muscle.name}</a>
-                                    </h6>
-                                    <p class="card-text d-inline-block mb-3"><strong>Equipment:</strong> ${muscle.equipment}</p>
-                                    <p><strong>Rating:</strong> ${generateRatingStars(muscle.rating)}</p>
-                                     <button id="${muscle.id}" type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary mr-2">
-                                                                                    <i class="material-icons mr-1" style="display: none;">check</i>Add
-                                     </button>
-
-                                </div>
-                            </div>
-                        </div>
-    `;
-    const selectButton = muscleCard.querySelector("button");
-    selectButton.addEventListener("click", function() {
-        const icon = selectButton.querySelector("i.material-icons");
-
-        // Toggle the visibility of the checkmark icon
-        if (icon.style.display === "none") {
-            icon.style.display = "inline-block";
-            selectButton.classList.remove("btn-outline-primary");
-            selectButton.classList.add("btn-primary");
-            selectedIds.push(selectButton.id);
-        } else {
-            icon.style.display = "none";
-            selectButton.classList.remove("btn-primary");
-            selectButton.classList.add("btn-outline-primary");
-            const index = selectedIds.indexOf(selectButton.id);
-            if (index > -1) {
-                selectedIds.splice(index, 1);
-            }
-        }
-    });
+    muscleCard.classList.add("grid-container","col-lg-4", "col-sm-12", "mb-2");
+    //muscleCard.classList.add("col-lg-4", "col-sm-12", "mb-2");
+    elements.forEach((element) => {
+                const gridItem = document.createElement("div");
+                gridItem.classList.add("grid-item");
+                gridItem.innerHTML = `
+                    <div class="card">
+                            <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;"></div>
+                    </div>`;
+                muscleCard.appendChild(gridItem);
+                gridItem.addEventListener("click", function() {
+                                        if (gridItem.classList.contains("selected")) {
+                                                        gridItem.classList.remove("selected");
+                                                        const index = selectedIds.indexOf(element);
+                                                        if (index > -1) {
+                                                            selectedIds.splice(index, 1);
+                                                        }
+                                                    } else {
+                                                        gridItem.classList.add("selected");
+                                                        selectedIds.push(element);
+                                                    }
+                                    });
+            });
     return muscleCard;
+
 }
 
 function generateRatingStars(rating) {
