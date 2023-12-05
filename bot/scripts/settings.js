@@ -5,11 +5,9 @@ tg.expand();
 tg.MainButton.setText("Update Account");
 tg.MainButton.show();
 
-// Get the input element by ID
 var datePickerInput = document.getElementById('datepicker');
-// Calculate tomorrow's date
-    var tomorrowDate = new Date();
-    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+var tomorrowDate = new Date();
+tomorrowDate.setDate(tomorrowDate.getDate() + 1);
 flatpickr(datePickerInput, {
       minDate: tomorrowDate, // Set the minimum date to tomorrow
       dateFormat: 'd.m.Y',
@@ -53,7 +51,6 @@ function populateList(arrayElement, fieldName) {
 }
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
-    var datePickerInput = document.getElementById('datepicker');
     var enteredDate = datePickerInput.value;
     if (enteredDate && /\d{2}.\d{2}.\d{4}/.test(enteredDate)) {
         tg.sendData(JSON.stringify({
