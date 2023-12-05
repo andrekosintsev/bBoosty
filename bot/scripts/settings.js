@@ -33,6 +33,7 @@ function populateFormForEditing(entry) {
     document.getElementById('firstName').value = entry.firstName || "";
     document.getElementById('lastName').value = entry.lastName || "";
     document.getElementById('difficulty').value = entry.difficulty || "";
+    document.getElementById('datepicker').value = entry.upcoming || "";
     populateList(entry.equipments, 'equipments');
     populateList(entry.types, 'types');
 }
