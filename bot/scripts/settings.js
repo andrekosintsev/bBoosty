@@ -76,7 +76,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
                     message: 'You have not provided your upcoming training date. This information is crucial for us to tailor a program that aligns with your schedule. Please specify the date when you plan to train next.',
                     buttons: [{
                         id: 'ok',
-                        text: 'Yes'
+                        text: 'Ok'
                     }]
                 }, function(buttonId) {});
     }
