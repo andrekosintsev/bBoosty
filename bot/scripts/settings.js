@@ -5,6 +5,13 @@ tg.expand();
 tg.MainButton.setText("Update Account");
 tg.MainButton.show();
 
+// Get the input element by ID
+var datePickerInput = document.getElementById('datepicker');
+var tomorrowDate = new Date();
+tomorrowDate.setDate((new Date()).getDate() + 1);
+var tomorrowFormatted = tomorrowDate.toISOString().split('T')[0];
+datePickerInput.setAttribute('min', tomorrowFormatted);
+
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
     return urlSearchParams.get(name);
@@ -42,6 +49,21 @@ function populateList(arrayElement, fieldName) {
 }
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
+    var datePickerInput = document.getElementById('datepicker');
+    var enteredDate = datePickerInput.value;
+    if (!enteredDate || !/\d{2}.\d{2}.\d{4}/.test(enteredDate)) {
+        tg.showPopup({
+                title: 'Please set next training date',
+                message: 'You have not provided your upcoming training date. This information is crucial for us to tailor a program that aligns with your schedule. Please specify the date when you plan to train next.',
+                buttons: [{
+                    id: 'ok',
+                    text: 'Yes'
+                }]
+            }, function(buttonId) {
+                return;
+            });
+    }
+
     tg.sendData(JSON.stringify({
         settings: {
                      id: document.getElementById('id').value,
@@ -49,6 +71,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
                      firstName: document.getElementById('firstName').value,
                      lastName: document.getElementById('lastName').value,
                      difficulty: document.getElementById('difficulty').value,
+                     upcoming: enteredDate,
                      equipments: Array.from(document.getElementById('equipments').selectedOptions).map(function(option) {
                                  return option.value;
                              }),
