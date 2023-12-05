@@ -60,9 +60,8 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
                     id: 'ok',
                     text: 'Yes'
                 }]
-            }, function(buttonId) {
-                return;
-            });
+            }, function(buttonId) {});
+            return;
     }
 
     tg.sendData(JSON.stringify({
