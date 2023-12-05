@@ -55,33 +55,32 @@ function populateList(arrayElement, fieldName) {
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     var datePickerInput = document.getElementById('datepicker');
     var enteredDate = datePickerInput.value;
-    if (!enteredDate || !/\d{2}.\d{2}.\d{4}/.test(enteredDate)) {
+    if (enteredDate && /\d{2}.\d{2}.\d{4}/.test(enteredDate)) {
+        tg.sendData(JSON.stringify({
+            settings: {
+                         id: document.getElementById('id').value,
+                         username: document.getElementById('username').value,
+                         firstName: document.getElementById('firstName').value,
+                         lastName: document.getElementById('lastName').value,
+                         difficulty: document.getElementById('difficulty').value,
+                         upcoming: enteredDate,
+                         equipments: Array.from(document.getElementById('equipments').selectedOptions).map(function(option) {
+                                     return option.value;
+                                 }),
+                         types: Array.from(document.getElementById('types').selectedOptions).map(function(option) {
+                                     return option.value;
+                                 }),
+            }
+        }));
+        tg.close();
+    } else {
         tg.showPopup({
-                title: 'Please set next training date',
-                message: 'You have not provided your upcoming training date. This information is crucial for us to tailor a program that aligns with your schedule. Please specify the date when you plan to train next.',
-                buttons: [{
-                    id: 'ok',
-                    text: 'Yes'
-                }]
-            }, function(buttonId) {});
-            return;
+                    title: 'Please set next training date',
+                    message: 'You have not provided your upcoming training date. This information is crucial for us to tailor a program that aligns with your schedule. Please specify the date when you plan to train next.',
+                    buttons: [{
+                        id: 'ok',
+                        text: 'Yes'
+                    }]
+                }, function(buttonId) {});
     }
-
-    tg.sendData(JSON.stringify({
-        settings: {
-                     id: document.getElementById('id').value,
-                     username: document.getElementById('username').value,
-                     firstName: document.getElementById('firstName').value,
-                     lastName: document.getElementById('lastName').value,
-                     difficulty: document.getElementById('difficulty').value,
-                     upcoming: enteredDate,
-                     equipments: Array.from(document.getElementById('equipments').selectedOptions).map(function(option) {
-                                 return option.value;
-                             }),
-                     types: Array.from(document.getElementById('types').selectedOptions).map(function(option) {
-                                 return option.value;
-                             }),
-        }
-    }));
-    tg.close();
 });
