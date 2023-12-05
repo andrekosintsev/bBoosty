@@ -7,10 +7,12 @@ tg.MainButton.show();
 
 // Get the input element by ID
 var datePickerInput = document.getElementById('datepicker');
-var tomorrowDate = new Date();
-tomorrowDate.setDate((new Date()).getDate() + 1);
-var tomorrowFormatted = tomorrowDate.toISOString().split('T')[0];
-datePickerInput.setAttribute('min', tomorrowFormatted);
+// Calculate tomorrow's date
+    var tomorrowDate = new Date();
+    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+flatpickr(datePickerInput, {
+      minDate: tomorrowDate, // Set the minimum date to tomorrow
+});
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
