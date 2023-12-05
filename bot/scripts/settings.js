@@ -12,6 +12,7 @@ var datePickerInput = document.getElementById('datepicker');
     tomorrowDate.setDate(tomorrowDate.getDate() + 1);
 flatpickr(datePickerInput, {
       minDate: tomorrowDate, // Set the minimum date to tomorrow
+      dateFormat: 'd.m.Y',
 });
 
 function getQueryParam(name) {
