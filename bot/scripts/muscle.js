@@ -5,7 +5,7 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 
 // Set the main button text and make it visible
-tg.MainButton.text = "Build Program";
+tg.MainButton.text = "Add selected to program";
 tg.MainButton.show();
 
 const muscleGrid = document.getElementById("muscles");
@@ -20,7 +20,10 @@ document.addEventListener("DOMContentLoaded", function() {
     if (encodedJsonData) {
         const jsonData = decodeURIComponent(encodedJsonData);
         const jsonArray = JSON.parse(jsonData);
-        muscleGrid.appendChild(createMuscleCard(jsonArray));
+        if(jsonArray.selected) {
+            selectedIds = jsonArray.selected;
+        }
+        muscleGrid.appendChild(createMuscleCard(jsonArray.active));
     }
 });
 
@@ -30,29 +33,36 @@ const selectedIds = [];
 // Function to create a muscle card element
 function createMuscleCard(elements) {
     const muscleCard = document.createElement("div");
-    muscleCard.classList.add("grid-container","col-lg-4", "col-sm-12", "mb-2");
-    //muscleCard.classList.add("col-lg-4", "col-sm-12", "mb-2");
+    muscleCard.classList.add("grid-container", "col-lg-4", "col-sm-12", "mb-2");
     elements.forEach((element) => {
-                const gridItem = document.createElement("div");
-                gridItem.classList.add("grid-item");
-                gridItem.innerHTML = `
-                    <div class="card">
-                            <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;"></div>
-                    </div>`;
-                muscleCard.appendChild(gridItem);
-                gridItem.addEventListener("click", function() {
-                                        if (gridItem.classList.contains("selected")) {
-                                                        gridItem.classList.remove("selected");
-                                                        const index = selectedIds.indexOf(element);
-                                                        if (index > -1) {
-                                                            selectedIds.splice(index, 1);
-                                                        }
-                                                    } else {
-                                                        gridItem.classList.add("selected");
-                                                        selectedIds.push(element);
-                                                    }
-                                    });
-            });
+        const gridItem = document.createElement("div");
+        gridItem.classList.add("grid-item");
+        const index = selectedIds.indexOf(element);
+        if (index > -1) {
+             gridItem.innerHTML = `
+                                 <div class="card selected">
+                                         <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;"></div>
+                                 </div>`;
+        } else {
+            gridItem.innerHTML = `
+                                <div class="card">
+                                        <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;"></div>
+                                </div>`;
+        }
+        muscleCard.appendChild(gridItem);
+        gridItem.addEventListener("click", function() {
+            if (gridItem.classList.contains("selected")) {
+                gridItem.classList.remove("selected");
+                const index = selectedIds.indexOf(element);
+                if (index > -1) {
+                    selectedIds.splice(index, 1);
+                }
+            } else {
+                gridItem.classList.add("selected");
+                selectedIds.push(element);
+            }
+        });
+    });
     return muscleCard;
 
 }
@@ -80,7 +90,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
             // Display an error message if more than one category is selected
             tg.showPopup({
                 title: 'Error',
-                message: 'You have selected more than 5 exercises. Please remove the extra selections. I will prepare program for 5 exercises only. After completing the program, you can choose another exercises to do.',
+                message: 'You have chosen more than 5 exercises. Please trim your selection to 5 exercises or fewer. I am crafting a program that focuses on a maximum of 5 exercises, as exceeding this limit may not yield additional benefits.',
                 buttons: [{
                     id: 'delete',
                     type: 'ok',
