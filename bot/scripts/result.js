@@ -111,7 +111,6 @@ function handleButtonClick(event) {
 
 // Attach event listener for buttons
 const table = document.querySelector('.table');
-table.addEventListener('click', handleButtonClick);
 
 Telegram.WebApp.onEvent('mainButtonClicked', function () {
     const selectedExercises = Array.from(document.querySelectorAll('tbody tr')).map((item) => {
