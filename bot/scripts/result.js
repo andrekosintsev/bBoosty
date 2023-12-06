@@ -19,8 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (encodedJsonData) {
         const jsonData = decodeURIComponent(encodedJsonData);
         const jsonArray = JSON.parse(jsonData);
-        muscleGrid.appendChild(createMuscleCard(jsonArray.selected));
-        if(!jsonArray.selected) {
+
+        if(jsonArray.selected) {
+            muscleGrid.appendChild(createMuscleCard(jsonArray.selected));
+        } else {
             tg.MainButton.hide();
             const muscleCard = document.createElement("div");
             muscleCard.innerHTML=`No exercises selected`;
