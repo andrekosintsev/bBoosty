@@ -6,7 +6,6 @@ tg.MainButton.text = "Save and Send";
 tg.MainButton.show();
 
 const muscleGrid = document.getElementById("muscles");
-let mGroup;
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if(!jsonArray.selected) {
             tg.MainButton.hide();
             const muscleCard = document.createElement("div");
-            muscleCard.innerHTML=`<div class="card" > No exercises selected  </div>`;
+            muscleCard.innerHTML=`No exercises selected`;
             muscleGrid.appendChild(muscleCard);
         }
         makeGridItemsDraggable();
@@ -110,8 +109,7 @@ function updateOrderIndexes() {
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
             const selectedExercises = selectedIds.map((id, index) => ({ id, orderIndex: index + 1 }));
             tg.sendData(JSON.stringify({
-                result: selectedExercises,
-                group: mGroup
+                result: selectedExercises
             }));
             tg.close();
 });
