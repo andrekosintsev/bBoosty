@@ -11,8 +11,6 @@ function getQueryParam(name) {
     return urlSearchParams.get(name);
 }
 
-let selectedIds = [];
-
 document.addEventListener("DOMContentLoaded", function () {
     const encodedJsonData = getQueryParam("json_data");
     if (encodedJsonData) {
@@ -20,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const jsonArray = JSON.parse(jsonData);
 
         if (jsonArray.selected) {
-            muscleGrid.appendChild(createMuscleCard(jsonArray.selected));
-            makeGridItemsDraggable();
+            const table = createMuscleCard(jsonArray.selected);
+            muscleGrid.appendChild(table);
         } else {
             tg.MainButton.hide();
             const muscleCard = document.createElement("div");
@@ -36,124 +34,90 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-function makeGridItemsDraggable() {
-    const gridItems = document.querySelectorAll('.grid-item');
-
-    gridItems.forEach((item) => {
-        item.draggable = true;
-
-        item.addEventListener('dragstart', function (event) {
-            event.dataTransfer.setData('text/plain', item.dataset.index);
-        });
-
-        item.addEventListener('dragover', function (event) {
-            event.preventDefault();
-            const draggedIndex = parseInt(event.dataTransfer.getData('text/plain'));
-            const currentIndex = parseInt(item.dataset.index);
-
-            if (draggedIndex < currentIndex) {
-                item.style.borderTop = '2px solid #2196F3';
-                item.style.borderBottom = '';
-            } else if (draggedIndex > currentIndex) {
-                item.style.borderBottom = '2px solid #2196F3';
-                item.style.borderTop = '';
-            }
-        });
-
-        item.addEventListener('dragleave', function () {
-            item.style.borderTop = '';
-            item.style.borderBottom = '';
-        });
-
-        item.addEventListener('drop', function (event) {
-            event.preventDefault();
-            const draggedIndex = parseInt(event.dataTransfer.getData('text/plain'));
-            const currentIndex = parseInt(item.dataset.index);
-            const gridItems = document.querySelectorAll('.grid-item');
-
-            const draggedElement = document.querySelector(`[data-index="${draggedIndex}"]`);
-            const parent = item.parentNode;
-
-            parent.insertBefore(draggedElement, item);
-
-            updateOrderIndexes();
-
-            gridItems.forEach((gridItem) => {
-                gridItem.style.borderTop = '';
-                gridItem.style.borderBottom = '';
-            });
-        });
-
-
-    });
-
-    // Add touch events for mobile devices
-    gridItems.forEach((item) => {
-        let draggedIndex;
-
-        item.addEventListener('touchstart', function (event) {
-            draggedIndex = parseInt(item.dataset.index);
-        });
-
-        item.addEventListener('touchmove', function (event) {
-            event.preventDefault();
-        });
-
-        item.addEventListener('touchend', function (event) {
-            const currentIndex = parseInt(item.dataset.index);
-            const gridItems = document.querySelectorAll('.grid-item');
-
-            gridItems.forEach((gridItem) => {
-                gridItem.style.borderTop = '';
-                gridItem.style.borderBottom = '';
-            });
-
-            if (draggedIndex < currentIndex) {
-                item.parentNode.insertBefore(document.querySelector(`[data-index="${draggedIndex}"]`), item);
-            } else if (draggedIndex > currentIndex) {
-                item.parentNode.insertBefore(document.querySelector(`[data-index="${draggedIndex}"]`), item.nextSibling);
-            }
-
-            updateOrderIndexes();
-        });
-    });
-}
-
 function createMuscleCard(elements) {
-    const muscleCard = document.createElement('div');
-    muscleCard.classList.add('grid-container', 'col-lg-4', 'col-sm-12', 'mb-2');
+    const table = document.createElement('table');
+    table.classList.add('col-lg-4', 'col-sm-12', 'mb-2', 'table', 'mb-0');
+    table.innerHTML = `<thead class="bg-light">
+                          <tr>
+                              <th scope="col" class="border-0">Actions</th>
+                              <th scope="col" class="border-0">Order</th>
+                              <th scope="col" class="border-0">Exercise</th>
+                          </tr>
+                      </thead>`;
 
-    let orderIndex = 1;
+    const muscleCard = document.createElement('tbody');
 
-    elements.forEach((element) => {
-        const gridItem = document.createElement('div');
-        gridItem.classList.add('grid-item');
-        gridItem.dataset.index = orderIndex;
+    elements.forEach((element, index) => {
+        const gridItem = document.createElement('tr');
+        gridItem.dataset.index = index + 1;
         gridItem.innerHTML = `
-            <div class="card" draggable="true">
+            <td>
+                ${index !== 0 ? `<button class="move-up" data-index="${index + 1}">⬆️</button>` : ''}
+                ${index !== elements.length - 1 ? `<button class="move-down" data-index="${index + 1}">⬇️</button>` : ''}
+            </td>
+            <td>${index + 1}</td>
+            <td>
                 <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); position: relative; border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;">
                 </div>
-            </div>`;
+            </td>`;
 
         muscleCard.appendChild(gridItem);
-        orderIndex++;
     });
 
-    return muscleCard;
+    table.appendChild(muscleCard);
+
+    // Add event listeners for move-up and move-down buttons
+    table.addEventListener('click', function (event) {
+        if (event.target.classList.contains('move-up')) {
+            moveElement(table, event.target.dataset.index, -1);
+        } else if (event.target.classList.contains('move-down')) {
+            moveElement(table, event.target.dataset.index, 1);
+        }
+    });
+
+    return table;
 }
 
-function updateOrderIndexes() {
-    const gridItems = document.querySelectorAll('.grid-item');
-    gridItems.forEach((item, index) => {
-        item.dataset.index = index + 1;
-    });
+function moveElement(table, currentIndex, direction) {
+    const rows = Array.from(table.querySelector('tbody').children);
+    const currentIndexInt = parseInt(currentIndex);
+
+    // Ensure the current index is within the valid range
+    if (currentIndexInt >= 1 && currentIndexInt <= rows.length) {
+        const targetIndex = currentIndexInt + direction;
+
+        // Ensure the target index is within the valid range
+        if (targetIndex >= 1 && targetIndex <= rows.length) {
+            // Swap the content of the Exercise cells
+            const temp = rows[currentIndexInt - 1].querySelector('td:last-child').innerHTML;
+            rows[currentIndexInt - 1].querySelector('td:last-child').innerHTML = rows[targetIndex - 1].querySelector('td:last-child').innerHTML;
+            rows[targetIndex - 1].querySelector('td:last-child').innerHTML = temp;
+
+            // Remove the old event listeners and reattach them
+            table.removeEventListener('click', handleButtonClick);
+            table.addEventListener('click', handleButtonClick);
+        }
+    }
 }
+
+// Event listener for buttons
+function handleButtonClick(event) {
+    if (event.target.classList.contains('move-up')) {
+        moveElement(table, event.target.dataset.index, -1);
+    } else if (event.target.classList.contains('move-down')) {
+        moveElement(table, event.target.dataset.index, 1);
+    }
+}
+
+// Attach event listener for buttons
+const table = document.querySelector('.table');
+table.addEventListener('click', handleButtonClick);
 
 Telegram.WebApp.onEvent('mainButtonClicked', function () {
-    const selectedExercises = Array.from(document.querySelectorAll('.grid-item')).map((item, index) => {
+    const selectedExercises = Array.from(document.querySelectorAll('tbody tr')).map((item) => {
         return {
             id: item.dataset.index,
-            orderIndex: index + 1
+            orderIndex: item.querySelector('.move-up').dataset.index // Using move-up button as a reference for order index
         };
     });
 
