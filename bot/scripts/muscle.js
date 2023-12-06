@@ -13,6 +13,8 @@ function getQueryParam(name) {
     return urlSearchParams.get(name);
 }
 
+let selectedIds = [];
+
 document.addEventListener("DOMContentLoaded", function() {
     const encodedJsonData = getQueryParam("json_data");
     if (encodedJsonData) {
@@ -28,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-const selectedIds = [];
+
 
 function createMuscleCard(elements) {
     const muscleCard = document.createElement("div");
@@ -36,17 +38,14 @@ function createMuscleCard(elements) {
     elements.forEach((element) => {
         const gridItem = document.createElement("div");
         gridItem.classList.add("grid-item");
+
+        gridItem.innerHTML = `
+                                        <div class="card">
+                                                <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;"></div>
+                                        </div>`;
         const index = selectedIds.indexOf(element);
         if (index > -1) {
-            gridItem.innerHTML = `
-                                 <div class="card selected">
-                                         <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;"></div>
-                                 </div>`;
-        } else {
-            gridItem.innerHTML = `
-                                <div class="card">
-                                        <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;"></div>
-                                </div>`;
+           gridItem.classList.add("selected");
         }
         muscleCard.appendChild(gridItem);
         gridItem.addEventListener("click", function() {
