@@ -21,6 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const jsonData = decodeURIComponent(encodedJsonData);
         const jsonArray = JSON.parse(jsonData);
         muscleGrid.appendChild(createMuscleCard(jsonArray.selected));
+        if(!jsonArray.selected) {
+        tg.MainButton.hide();
+        }
         makeGridItemsDraggable();
     }
 });
