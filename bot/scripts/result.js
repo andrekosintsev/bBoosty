@@ -22,10 +22,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const jsonArray = JSON.parse(jsonData);
         muscleGrid.appendChild(createMuscleCard(jsonArray.selected));
         if(!jsonArray.selected) {
-        tg.MainButton.hide();
+            tg.MainButton.hide();
+            const muscleCard = document.createElement("div");
+            muscleCard.innerHTML=`<div class="card" > No exercises selected  </div>`;
+            muscleGrid.appendChild(muscleCard);
         }
         makeGridItemsDraggable();
-    }
+    } else {
+                tg.MainButton.hide();
+                const muscleCard = document.createElement("div");
+                muscleCard.innerHTML=`No exercises selected`;
+                muscleGrid.appendChild(muscleCard);
+     }
 });
 
 function makeGridItemsDraggable() {
