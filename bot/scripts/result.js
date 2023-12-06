@@ -29,36 +29,17 @@ function makeGridItemsDraggable() {
     const gridItems = document.querySelectorAll(".grid-item");
 
     gridItems.forEach((item) => {
-        item.draggable = true;
+        let draggedIndex;
 
-        item.addEventListener("dragstart", function (event) {
-            event.dataTransfer.setData("text/plain", item.dataset.index);
-            // Add a class to the dragged item for styling during the drag operation
-            item.classList.add("dragged-item");
+        item.addEventListener("touchstart", function (event) {
+            draggedIndex = parseInt(item.dataset.index);
         });
 
-        item.addEventListener("dragover", function (event) {
+        item.addEventListener("touchmove", function (event) {
             event.preventDefault();
-            const draggedIndex = parseInt(event.dataTransfer.getData("text/plain"));
-            const currentIndex = parseInt(item.dataset.index);
-
-            if (draggedIndex < currentIndex) {
-                item.style.borderTop = "2px solid #2196F3";
-                item.style.borderBottom = "";
-            } else if (draggedIndex > currentIndex) {
-                item.style.borderBottom = "2px solid #2196F3";
-                item.style.borderTop = "";
-            }
         });
 
-        item.addEventListener("dragleave", function () {
-            item.style.borderTop = "";
-            item.style.borderBottom = "";
-        });
-
-        item.addEventListener("drop", function (event) {
-            event.preventDefault();
-            const draggedIndex = parseInt(event.dataTransfer.getData("text/plain"));
+        item.addEventListener("touchend", function (event) {
             const currentIndex = parseInt(item.dataset.index);
             const gridItems = document.querySelectorAll(".grid-item");
 
@@ -74,13 +55,6 @@ function makeGridItemsDraggable() {
             }
 
             updateOrderIndexes();
-        });
-
-        // Remove the drag styling when the drag operation ends
-        item.addEventListener("dragend", function () {
-            item.style.borderTop = "";
-            item.style.borderBottom = "";
-            item.classList.remove("dragged-item");
         });
     });
 }
