@@ -36,40 +36,44 @@ document.addEventListener("DOMContentLoaded", function () {
         muscleGrid.appendChild(muscleCard);
      }
 });
-
 function makeGridItemsDraggable() {
     const gridItems = document.querySelectorAll(".grid-item");
 
     gridItems.forEach((item) => {
         let draggedIndex;
+        let startX;
 
         item.addEventListener("touchstart", function (event) {
             draggedIndex = parseInt(item.dataset.index);
+            startX = event.touches[0].clientX;
         });
 
         item.addEventListener("touchmove", function (event) {
             event.preventDefault();
-        });
+            const currentX = event.touches[0].clientX;
+            const deltaX = currentX - startX;
 
-        item.addEventListener("touchend", function (event) {
-            const currentIndex = parseInt(item.dataset.index);
-            const gridItems = document.querySelectorAll(".grid-item");
+            if (Math.abs(deltaX) > 5) {
+                const currentIndex = parseInt(item.dataset.index);
+                const gridItems = document.querySelectorAll(".grid-item");
 
-            gridItems.forEach((gridItem) => {
-                gridItem.style.borderTop = "";
-                gridItem.style.borderBottom = "";
-            });
+                gridItems.forEach((gridItem) => {
+                    gridItem.style.borderTop = "";
+                    gridItem.style.borderBottom = "";
+                });
 
-            if (draggedIndex < currentIndex) {
-                item.parentNode.insertBefore(document.querySelector(`[data-index="${draggedIndex}"]`), item);
-            } else if (draggedIndex > currentIndex) {
-                item.parentNode.insertBefore(document.querySelector(`[data-index="${draggedIndex}"]`), item.nextSibling);
+                if (deltaX > 0) {
+                    item.parentNode.insertBefore(document.querySelector(`[data-index="${draggedIndex}"]`), item);
+                } else {
+                    item.parentNode.insertBefore(document.querySelector(`[data-index="${draggedIndex}"]`), item.nextSibling);
+                }
+
+                updateOrderIndexes();
             }
-
-            updateOrderIndexes();
         });
     });
 }
+
 
 function createMuscleCard(elements) {
     const muscleCard = document.createElement("div");
