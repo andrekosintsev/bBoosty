@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         makeGridItemsDraggable();
     } else {
-                tg.MainButton.hide();
-                const muscleCard = document.createElement("div");
-                muscleCard.innerHTML=`No exercises selected`;
-                muscleGrid.appendChild(muscleCard);
+        tg.MainButton.hide();
+        const muscleCard = document.createElement("div");
+        muscleCard.innerHTML=`No exercises selected`;
+        muscleGrid.appendChild(muscleCard);
      }
 });
 
