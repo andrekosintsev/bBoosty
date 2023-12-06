@@ -1,14 +1,12 @@
-// Initialize the Telegram WebApp
 let tg = window.Telegram.WebApp;
 
-// Expand the Telegram WebApp
 tg.expand();
 
-// Set the main button text and make it visible
 tg.MainButton.text = "Add selected to program";
 tg.MainButton.show();
 
 const muscleGrid = document.getElementById("muscles");
+let group;
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -20,17 +18,18 @@ document.addEventListener("DOMContentLoaded", function() {
     if (encodedJsonData) {
         const jsonData = decodeURIComponent(encodedJsonData);
         const jsonArray = JSON.parse(jsonData);
-        if(jsonArray.selected) {
+        if (jsonArray.selected) {
             selectedIds = jsonArray.selected;
+        }
+        if (jsonArray.group) {
+            group = jsonArray.group;
         }
         muscleGrid.appendChild(createMuscleCard(jsonArray.active));
     }
 });
 
-// Array to store the selected muscle categories
 const selectedIds = [];
 
-// Function to create a muscle card element
 function createMuscleCard(elements) {
     const muscleCard = document.createElement("div");
     muscleCard.classList.add("grid-container", "col-lg-4", "col-sm-12", "mb-2");
@@ -39,7 +38,7 @@ function createMuscleCard(elements) {
         gridItem.classList.add("grid-item");
         const index = selectedIds.indexOf(element);
         if (index > -1) {
-             gridItem.innerHTML = `
+            gridItem.innerHTML = `
                                  <div class="card selected">
                                          <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;"></div>
                                  </div>`;
@@ -83,11 +82,9 @@ function generateRatingStars(rating) {
         halfStar.repeat(halfStarCount));
 }
 
-// Event handler for the main button click
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (selectedIds.length > 0) {
         if (selectedIds.length >= 6) {
-            // Display an error message if more than one category is selected
             tg.showPopup({
                 title: 'Error',
                 message: 'You have chosen more than 5 exercises. Please trim your selection to 5 exercises or fewer. I am crafting a program that focuses on a maximum of 5 exercises, as exceeding this limit may not yield additional benefits.',
@@ -98,14 +95,13 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
                 }]
             });
         } else {
-            // Send the selected muscle categories to the Telegram WebApp and close the app
             tg.sendData(JSON.stringify({
-                exercises: selectedIds
+                exercises: selectedIds,
+                muscle_group: group
             }));
             tg.close();
         }
     } else {
-        // Display a message to choose a category if none is selected
         tg.showPopup({
             title: 'Choose a Category',
             message: 'You have not selected a exercises to do for your workout.',
