@@ -54,7 +54,7 @@ function populateList(arrayElement, fieldName) {
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     var enteredDate = datePickerInput.value;
-    if (enteredDate && /\d{2}.\d{2}.\d{4}/.test(enteredDate)) {
+    if (enteredDate) {
         tg.sendData(JSON.stringify({
             settings: {
                          id: document.getElementById('id').value,
