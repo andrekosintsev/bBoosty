@@ -59,11 +59,12 @@
                                 <strong class="text-muted d-block">Next training date:</strong>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
-                                        <input id="nextDate" type="text" class="form-control"
-                                               placeholder="DD.MM.YYYY"
-                                               aria-label="nextDate" aria-describedby="basic-addon1" pattern="\d{2}.\d{2}.\d{4}">
+                                        <input inputmode="numeric" class="form-control" type="text" id="nextDate"
+                                               name="nextDate"
+                                               pattern="-\d{2}.\d{2}.\d{4}" placeholder="DD.MM.YYYY">
                                     </div>
                                 </div>
+
                                 <strong class="text-muted d-block">Your Level:</strong>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
@@ -148,7 +149,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
 <script src="scripts/shards-dashboards.1.1.0.js"></script>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.2/dist/flatpickr.min.js"></script>
 <script src="scripts/settings.js"></script>
 </body>
 </html>
