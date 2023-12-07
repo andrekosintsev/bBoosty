@@ -6,6 +6,12 @@ tg.MainButton.setText("Update Account");
 tg.MainButton.show();
 
 var datePickerInput = document.getElementById('nextDate');
+var tomorrowDate = new Date();
+tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+flatpickr(datePickerInput, {
+      minDate: tomorrowDate, // Set the minimum date to tomorrow
+      dateFormat: 'd.m.Y',
+});
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -46,54 +52,32 @@ function populateList(arrayElement, fieldName) {
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     var enteredDate = datePickerInput.value;
-    if (enteredDate) {
-        var enteredDateObject = new Date(enteredDate);
-        var today = new Date();
-        if (enteredDateObject > today) {
-            tg.sendData(JSON.stringify({
-                settings: {
-                    id: document.getElementById('id').value,
-                    username: document.getElementById('username').value,
-                    firstName: document.getElementById('firstName').value,
-                    lastName: document.getElementById('lastName').value,
-                    difficulty: document.getElementById('difficulty').value,
-                    upcoming: enteredDate,
-                    equipments: Array.from(document.getElementById('equipments').selectedOptions).map(function(option) {
-                        return option.value;
-                    }),
-                    types: Array.from(document.getElementById('types').selectedOptions).map(function(option) {
-                        return option.value;
-                    }),
-                }
-            }));
-            tg.close();
-        } else if (enteredDateObject.toDateString() === currentDate.toDateString()) {
-            tg.showPopup({
-                title: 'Please set next training date',
-                message: 'You have not provided your upcoming training date. This information is crucial for us to tailor a program that aligns with your schedule. Please specify the date when you plan to train next.',
-                buttons: [{
-                    id: 'ok',
-                    text: 'Ok'
-                }]
-            }, function(buttonId) {});
-        } else {
-            tg.showPopup({
-                title: 'Please set next training date',
-                message: 'You have not provided your upcoming training date. This information is crucial for us to tailor a program that aligns with your schedule. Please specify the date when you plan to train next.',
-                buttons: [{
-                    id: 'ok',
-                    text: 'Ok'
-                }]
-            }, function(buttonId) {});
-        }
+    if (enteredDate && /\d{2}.\d{2}.\d{4}/.test(enteredDate)) {
+        tg.sendData(JSON.stringify({
+            settings: {
+                         id: document.getElementById('id').value,
+                         username: document.getElementById('username').value,
+                         firstName: document.getElementById('firstName').value,
+                         lastName: document.getElementById('lastName').value,
+                         difficulty: document.getElementById('difficulty').value,
+                         upcoming: enteredDate,
+                         equipments: Array.from(document.getElementById('equipments').selectedOptions).map(function(option) {
+                                     return option.value;
+                                 }),
+                         types: Array.from(document.getElementById('types').selectedOptions).map(function(option) {
+                                     return option.value;
+                                 }),
+            }
+        }));
+        tg.close();
     } else {
         tg.showPopup({
-            title: 'Please set next training date',
-            message: 'You have not provided your upcoming training date. This information is crucial for us to tailor a program that aligns with your schedule. Please specify the date when you plan to train next.',
-            buttons: [{
-                id: 'ok',
-                text: 'Ok'
-            }]
-        }, function(buttonId) {});
+                    title: 'Please set next training date',
+                    message: 'You have not provided your upcoming training date. This information is crucial for us to tailor a program that aligns with your schedule. Please specify the date when you plan to train next.',
+                    buttons: [{
+                        id: 'ok',
+                        text: 'Ok'
+                    }]
+                }, function(buttonId) {});
     }
 });
