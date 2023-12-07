@@ -52,12 +52,12 @@ function createMuscleCard(elements) {
         gridItem.dataset.index = index + 1;
         gridItem.innerHTML = `
             <td>
-                ${index !== 0 ? `<button class="move-up" data-index="${index + 1}">⬆️</button>` : ''}
-                ${index !== elements.length - 1 ? `<button class="move-down" data-index="${index + 1}">⬇️</button>` : ''}
+                ${index !== 0 ? `<a href="#" class="move-up" data-index="${index + 1}">⬆️</a>` : ''}
+                ${index !== elements.length - 1 ? `<a href="#" class="move-down" data-index="${index + 1}">⬇️</a>` : ''}
             </td>
             <td>${index + 1}</td>
             <td>
-                <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); position: relative; border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;">
+                <div id="${element}" class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); position: relative; border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;">
                 </div>
             </td>`;
 
@@ -109,19 +109,13 @@ function handleButtonClick(event) {
     }
 }
 
-// Attach event listener for buttons
-const table = document.querySelector('.table');
-
 Telegram.WebApp.onEvent('mainButtonClicked', function () {
-    const selectedExercises = Array.from(document.querySelectorAll('tbody tr')).map((item) => {
-        return {
-            id: item.dataset.index,
-            orderIndex: item.querySelector('.move-up').dataset.index // Using move-up button as a reference for order index
-        };
-    });
-
     tg.sendData(JSON.stringify({
-        result: selectedExercises
+        result: Array.from(document.querySelectorAll('tbody tr')).map((item) => {
+                                    const indexColumn = item.querySelector('td:nth-child(2)');
+                                    const muscleColumn = item.querySelector('td:nth-child(3) div');
+                                    return  muscleColumn ? muscleColumn.id : null;
+                    })
     }));
 
     tg.close();
