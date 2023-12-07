@@ -5,7 +5,7 @@ tg.expand();
 tg.MainButton.setText("Update Account");
 tg.MainButton.show();
 
-var datePickerInput = document.getElementById('datepicker');
+var datePickerInput = document.getElementById('nextDate');
 var tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
 
@@ -36,7 +36,7 @@ function populateFormForEditing(entry) {
     document.getElementById('firstName').value = entry.firstName || "";
     document.getElementById('lastName').value = entry.lastName || "";
     document.getElementById('difficulty').value = entry.difficulty || "";
-    document.getElementById('datepicker').value = entry.upcoming || "";
+    document.getElementById('nextDate').value = entry.upcoming || "";
     populateList(entry.equipments, 'equipments');
     populateList(entry.types, 'types');
 }
