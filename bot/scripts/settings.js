@@ -5,7 +5,7 @@ tg.expand();
 tg.MainButton.setText("Update Account");
 tg.MainButton.show();
 
-/*var datePickerInput = document.getElementById('datepicker');
+var datePickerInput = document.getElementById('datepicker');
 var tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
 
@@ -13,7 +13,7 @@ tomorrow.setDate(tomorrow.getDate() + 1);
 var tomorrowDate = tomorrow.toISOString().split('T')[0];
 
     // Set the min attribute to tomorrow's date
-datePickerInput.min = tomorrowDate;*/
+datePickerInput.min = tomorrowDate;
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
