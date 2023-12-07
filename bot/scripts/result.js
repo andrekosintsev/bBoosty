@@ -3,6 +3,7 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 tg.MainButton.text = "Save and Send";
 tg.MainButton.show();
+let mGroup;
 
 const muscleGrid = document.getElementById("muscles");
 
@@ -20,6 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (jsonArray.selected) {
             const table = createMuscleCard(jsonArray.selected);
             muscleGrid.appendChild(table);
+            if (jsonArray.group) {
+                mGroup = jsonArray.group;
+            }
         } else {
             tg.MainButton.hide();
             const muscleCard = document.createElement("div");
@@ -115,7 +119,8 @@ Telegram.WebApp.onEvent('mainButtonClicked', function () {
                                     const indexColumn = item.querySelector('td:nth-child(2)');
                                     const muscleColumn = item.querySelector('td:nth-child(3) div');
                                     return  muscleColumn ? muscleColumn.id : null;
-                    })
+                    }),
+        group: mGroup
     }));
 
     tg.close();
