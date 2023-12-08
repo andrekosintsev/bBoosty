@@ -56,6 +56,7 @@ function populateFormForEditing(entry) {
     document.getElementById('lastName').value = entry.lastName || "";
     document.getElementById('difficulty').value = entry.difficulty || "";
     document.getElementById('nextDate').value = entry.upcoming || "";
+    document.getElementById('regularity').value = entry.regularity || "";
     populateList(entry.equipments, 'equipments');
     populateList(entry.types, 'types');
 }
@@ -85,6 +86,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
                              lastName: document.getElementById('lastName').value,
                              difficulty: document.getElementById('difficulty').value,
                              upcoming: enteredDate,
+                             regularity: document.getElementById('regularity').value,
                              equipments: Array.from(document.getElementById('equipments').selectedOptions).map(function(option) {
                                          return option.value;
                                      }),
