@@ -54,7 +54,7 @@ function populateFormForEditing(entry) {
     document.getElementById('username').value = entry.username || "";
     document.getElementById('firstName').value = entry.firstName || "";
     document.getElementById('lastName').value = entry.lastName || "";
-    document.getElementById('language').value = entry.language || "";
+    document.getElementById('languageCode').value = entry.languageCode || "";
     document.getElementById('difficulty').value = entry.difficulty || "";
     document.getElementById('nextDate').value = entry.upcoming || "";
     document.getElementById('regularity').value = entry.regularity || "";
@@ -87,7 +87,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
                              username: document.getElementById('username').value,
                              firstName: document.getElementById('firstName').value,
                              lastName: document.getElementById('lastName').value,
-                             language: document.getElementById('language').value,
+                             languageCode: document.getElementById('languageCode').value,
                              difficulty: document.getElementById('difficulty').value,
                              upcoming: enteredDate,
                              regularity: document.getElementById('regularity').value,
