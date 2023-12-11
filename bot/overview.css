@@ -1,0 +1,49 @@
+$black: #333;
+$white: #eee;
+$color-1: #00BCD4;
+$label-z: 200;
+$svg-z: 100;
+svg {
+            position: absolute;
+            right: -1.5rem;
+            bottom: 3rem;
+            height: 350px;
+            z-index: $svg-z;
+}
+svg g[id] path {
+            opacity: .2;
+            transition: opacity .25s ease-in-out;
+}
+
+svg g g[id]:seventyfive path {
+            cursor: pointer;
+            opacity: .5;
+            fill: #FF3333 !important;
+}
+
+svg g g[id]:fifty path {
+            cursor: pointer;
+            opacity: .5;
+            fill: #FF0000 !important;
+}
+
+svg g g[id]:twentyfive path {
+            cursor: pointer;
+            opacity: .5;
+            fill: #CC0000 !important;
+}
+
+svg g g[id]:zero path {
+            cursor: pointer;
+            opacity: .5;
+            fill: #990000 !important;
+}
+
+.muscle-groups {
+  position: relative;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 0 rgba(black, .5);
+  overflow: hidden;
+  border-top: .75rem solid $color-1;
+}
