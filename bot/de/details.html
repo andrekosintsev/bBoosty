@@ -1,5 +1,6 @@
-<!doctype html>
-<html class="no-js h-100" lang="en">
+<!DOCTYPE html>
+<html class="no-js h-100" lang="de">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="../styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
+
 <body class="h-100">
 <div class="container-fluid">
     <input type="hidden" name="id" id="id">
@@ -24,8 +26,7 @@
             <div class="main-content-container container-fluid px-4">
                 <div class="page-header row no-gutters py-4">
                     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                        <span id="ruName"
-                              class="text-uppercase page-subtitle"></span>
+                        <span id="ruName" class="text-uppercase page-subtitle"></span>
                         <h3 id="enName" class="page-title"></h3>
                     </div>
                 </div>
@@ -34,27 +35,27 @@
                         <div class="card card-small card-post card-post--1">
 
                             <div id="gif" style="display: none;">
-                                <img id="gifImage" class="card-post__image"/>
+                                <img id="gifImage" class="card-post__image" />
                             </div>
-                            <!-- Your first iframe content -->
+                            <!-- Ihr erster Iframe-Inhalt -->
                             <div id="videoContent" style="display: none;">
                                 <iframe style="display: none;" id="video" class="card-post__image"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
                                 </iframe>
-                                <img style="display: none;" id="noContent" class="card-post__image"/>
+                                <img style="display: none;" id="noContent" class="card-post__image" />
                             </div>
-                            <a id="difficulty" href="#" class="card-post__category badge badge-pill badge-info">intermediate</a>
+                            <a id="difficulty" href="#" class="card-post__category badge badge-pill badge-info">Fortgeschrittene</a>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a class="text-fiord-blue" href="#">Sets & Instructions</a>
+                                    <a class="text-fiord-blue" href="#">Sätze & Anweisungen</a>
                                 </h5>
                                 <div class="btn-group btn-group-toggle mb-3" data-toggle="buttons">
                                     <label id="set" class="btn btn-white active">
-                                        <input type="radio" name="options" id="option3"
-                                               autocomplete="off" checked>Sets</label>
+                                        <input type="radio" name="options" id="option3" autocomplete="off" checked>Sätze
+                                    </label>
                                     <label id="instruction" class="btn btn-white">
-                                        <input type="radio" name="options" id="option1"
-                                               autocomplete="off">Instructions</label>
+                                        <input type="radio" name="options" id="option1" autocomplete="off">Anweisungen
+                                    </label>
                                 </div>
                                 <div class="row" id="setOptions">
                                     <div class="col">
@@ -64,46 +65,47 @@
                                                     <thead class="bg-light">
                                                     <tr>
                                                         <th scope="col" class="border-0">#</th>
-                                                        <th scope="col" class="border-0">Repetitions</th>
-                                                        <th scope="col" class="border-0">Weight (kg)</th>
+                                                        <th scope="col" class="border-0">Wiederholungen</th>
+                                                        <th scope="col" class="border-0">Gewicht (kg)</th>
                                                         <th scope="col" class="border-0"></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody id="sets">
                                                     </tbody>
                                                 </table>
-                                                <button id="addRow" type="submit" class="btn btn-accent">Add Set
+                                                <button id="addRow" type="submit" class="btn btn-accent">Satz hinzufügen
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div id="instructionOptions" style="display: none;">
-                                    <p id="instructions" class="card-text d-inline-block mb-3"> Instructions for this
-                                        exercise are not available in our database yet. We are working on it! You can
-                                        also help in the development and improvement of this bot by sending us
-                                        information about the exercise to kvad.software@rambler.ru</p>
+                                    <p id="instructions" class="card-text d-inline-block mb-3">Anweisungen für diese
+                                        Übung sind in unserer Datenbank noch nicht verfügbar. Wir arbeiten daran! Sie
+                                        können auch zur Entwicklung und Verbesserung dieses Bots beitragen, indem
+                                        Sie uns Informationen zur Übung an kvad.software@rambler.ru senden.</p>
                                 </div>
                                 <span class="text-muted">
-                                    <div class="card-post border-top">
-                                        <div class="my-auto ml-auto">
-                                            <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                                                <input type="checkbox" id="neverRecommend" name="neverRecommend"
-                                                       class="custom-control-input">
-                                                <label class="custom-control-label" for="neverRecommend">Never Recommend Again</label>
+                                        <div class="card-post border-top">
+                                            <div class="my-auto ml-auto">
+                                                <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                                                    <input type="checkbox" id="neverRecommend" name="neverRecommend"
+                                                           class="custom-control-input">
+                                                    <label class="custom-control-label" for="neverRecommend">Nicht mehr
+                                                        empfehlen</label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="card-post d-flex">
-                                        <div id="change" href="#" class="card-text mr-auto mt-3">
-                                            <a class="nav-link" href="#">Change Exercise</a>
+                                        <div class="card-post d-flex">
+                                            <div id="change" href="#" class="card-text mr-auto mt-3">
+                                                <a class="nav-link" href="#">Übung ändern</a>
+                                            </div>
+                                            <div class="my-auto ml-auto">
+                                                <button id="delete" type="button"
+                                                        class="mb-2 btn btn-outline-danger mr-2">Aus dem Programm entfernen</button>
+                                            </div>
                                         </div>
-                                        <div class="my-auto ml-auto">
-                                            <button id="delete" type="button"
-                                                    class="mb-2 btn btn-outline-danger mr-2">Remove from Program</button>
-                                        </div>
-                                    </div>
-                                </span>
+                                    </span>
                             </div>
                         </div>
                     </div>
@@ -127,4 +129,5 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="scripts/details.js"></script>
 </body>
+
 </html>

@@ -1,7 +1,7 @@
 let tg = window.Telegram.WebApp;
 
 tg.expand();
-tg.MainButton.text = "Save Sets";
+tg.MainButton.text = "Sätze speichern";
 tg.MainButton.show();
 
 let rowCount = 1;
@@ -38,19 +38,19 @@ function populateFormForEditing(entry) {
             switch (entry.exercise.difficulty) {
                 case 'beginner':
                     document.getElementById("difficulty").classList.add("badge-info");
-                    document.getElementById("difficulty").textContent = "beginner";
+                    document.getElementById("difficulty").textContent = "Anfänger";
                     break;
                 case 'intermediate':
                     document.getElementById("difficulty").classList.add("badge-warning");
-                    document.getElementById("difficulty").textContent = "intermediate";
+                    document.getElementById("difficulty").textContent = "Fortgeschrittene";
                     break;
                 case 'expert':
                     document.getElementById("difficulty").classList.add("badge-danger");
-                    document.getElementById("difficulty").textContent = "expert";
+                    document.getElementById("difficulty").textContent = "Experte";
                     break;
                 default:
                     document.getElementById("difficulty").classList.add("badge-info");
-                    document.getElementById("difficulty").textContent = "beginner";
+                    document.getElementById("difficulty").textContent = "Anfänger";
                     break;
             }
         }
@@ -200,8 +200,8 @@ document.getElementById('addRow').addEventListener('click', function() {
         rowCount++;
     } else {
         tg.showPopup({
-            title: 'Maximum number of sets reached',
-            message: 'It seems you have exhausted this exercise. Move on to another exercise!',
+            title: 'Maximale Anzahl von Sätzen erreicht',
+            message: 'Es scheint, als hätten Sie diese Übung ausgeschöpft. Gehen Sie zu einer anderen Übung über!',
             buttons: [{
                 id: 'ok',
                 text: 'Okay'
@@ -211,16 +211,16 @@ document.getElementById('addRow').addEventListener('click', function() {
 });
 
 document.getElementById('change').addEventListener('click', function() {
-    let text = document.getElementById('neverRecommend').checked ? 'Replace exercise in program and remove from recommendations' : 'Replace exercise in program';
+    let text = document.getElementById('neverRecommend').checked ? 'Übung im Programm ersetzen und aus Empfehlungen entfernen' : 'Übung im Programm ersetzen';
     tg.showPopup({
         title: text,
-        message: 'Are you sure you want to replace the exercise?',
+        message: 'Sind Sie sicher, dass Sie die Übung ersetzen möchten?',
         buttons: [{
             id: 'ok',
-            text: 'Yes'
+            text: 'Ja'
         }, {
             id: 'cancel',
-            text: 'Cancel'
+            text: 'Abbrechen'
         }]
     }, function(buttonId) {
         if ('ok' === buttonId) {
@@ -238,16 +238,16 @@ document.getElementById('change').addEventListener('click', function() {
 });
 
 document.getElementById('delete').addEventListener('click', function() {
-    let text = document.getElementById('neverRecommend').checked ? 'Complete removal and inability to recommend' : 'Removal from this program';
+    let text = document.getElementById('neverRecommend').checked ? 'Vollständige Entfernung und Unfähigkeit zur Empfehlung' : 'Entfernung aus diesem Programm';
     tg.showPopup({
         title: text,
-        message: 'Are you sure you want to delete the exercise?',
+        message: 'Sind Sie sicher, dass Sie die Übung löschen möchten?',
         buttons: [{
             id: 'ok',
-            text: 'Yes'
+            text: 'Ja'
         }, {
             id: 'cancel',
-            text: 'Cancel'
+            text: 'Abbrechen'
         }]
     }, function(buttonId) {
         if ('ok' === buttonId) {
@@ -263,7 +263,6 @@ document.getElementById('delete').addEventListener('click', function() {
         }
     });
 });
-
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     collectedData.length = 0;

@@ -2,7 +2,7 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 
-tg.MainButton.setText("Update Account");
+tg.MainButton.setText("Konto aktualisieren");
 tg.MainButton.show();
 
 var datePickerInput = document.getElementById('nextDate');
@@ -12,20 +12,20 @@ var datePickerInput = document.getElementById('nextDate');
         return;
     }
     item.addEventListener('input', function() {
-        // Remove any non-digit characters
+        // Entferne alle nicht-numerischen Zeichen
         const cleanedInput = this.value.replace(/\D/g, '');
 
-        // Check if the input is not empty
+        // Überprüfe, ob die Eingabe nicht leer ist
         if (cleanedInput.length > 0) {
-            // Extract day, month, and year parts
+            // Extrahiere Tag, Monat und Jahr
             let day = cleanedInput.slice(0, 2);
             let month = cleanedInput.slice(2, 4);
             let year = cleanedInput.slice(4, 8);
-            // Validate day and month
+            // Überprüfe Tag und Monat
             if (day > 31) day = '31';
             if (month > 12) month = '12';
 
-            // Format the date as DD.MM.YYYY
+            // Formatieren des Datums als TT.MM.JJJJ
             let formattedDate = day;
             if (month) formattedDate += '.' + month;
             if (year) formattedDate += '.' + year;
@@ -48,7 +48,7 @@ if (encodedJsonData) {
     populateFormForEditing(jsonObject);
 }
 
-// Function to populate the award form with data for editing
+// Funktion zum Ausfüllen des Formulars mit Daten für die Bearbeitung
 function populateFormForEditing(entry) {
     document.getElementById('id').value = entry.id || "";
     document.getElementById('username').value = entry.username || "";
@@ -102,8 +102,8 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
             tg.close();
         } else {
             tg.showPopup({
-                                title: 'Please set next training date (Next day should be at least tomorrow)',
-                                message: 'You have not provided your upcoming training date. This information is crucial for us to tailor a program that aligns with your schedule. Please specify the date when you plan to train next.',
+                                title: 'Bitte setzen Sie das nächste Trainingsdatum (Das nächste Datum sollte mindestens morgen sein)',
+                                message: 'Sie haben Ihr bevorstehendes Trainingsdatum nicht angegeben. Diese Information ist entscheidend, um ein Programm zu erstellen, das sich an Ihren Zeitplan anpasst. Bitte geben Sie das Datum an, an dem Sie das nächste Mal trainieren möchten.',
                                 buttons: [{
                                     id: 'ok',
                                     text: 'Ok'
@@ -112,8 +112,8 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
         }
     } else {
         tg.showPopup({
-                    title: 'Please set next training date (Next day should be at least tomorrow)',
-                    message: 'You have not provided your upcoming training date. This information is crucial for us to tailor a program that aligns with your schedule. Please specify the date when you plan to train next.',
+                    title: 'Bitte setzen Sie das nächste Trainingsdatum (Das nächste Datum sollte mindestens morgen sein)',
+                    message: 'Sie haben Ihr bevorstehendes Trainingsdatum nicht angegeben. Diese Information ist entscheidend, um ein Programm zu erstellen, das sich an Ihren Zeitplan anpasst. Bitte geben Sie das Datum an, an dem Sie das nächste Mal trainieren möchten.',
                     buttons: [{
                         id: 'ok',
                         text: 'Ok'
