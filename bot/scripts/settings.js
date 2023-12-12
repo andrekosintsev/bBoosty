@@ -80,7 +80,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
         const formattedDate = `${year}-${month}-${day}`;
         var enteredDateObject = new Date(formattedDate);
         var currentDate = new Date();
-        if (enteredDateObject > currentDate) {
+        if (enteredDateObject.toDateString() > currentDate.toDateString()) {
             tg.sendData(JSON.stringify({
                 settings: {
                              id: document.getElementById('id').value,
