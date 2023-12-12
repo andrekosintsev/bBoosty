@@ -1,0 +1,130 @@
+<!doctype html>
+<html class="no-js h-100" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>BBoosty</title>
+    <meta name="description" content="BBoosty">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../styles/shards-dashboards.1.1.0.css">
+    <link rel="stylesheet" href="../styles/extras.1.1.0.min.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body class="h-100">
+<div class="container-fluid">
+    <input type="hidden" name="id" id="id">
+    <input type="hidden" name="muscle" id="muscle">
+    <input type="hidden" name="exId" id="exId">
+    <div class="row">
+        <main class="main-content col-lg-12 col-md-12 col-sm-12 p-0 offset-lg-0 offset-md-0">
+            <div class="main-content-container container-fluid px-4">
+                <div class="page-header row no-gutters py-4">
+                    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                        <span id="ruName"
+                              class="text-uppercase page-subtitle"></span>
+                        <h3 id="enName" class="page-title"></h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                        <div class="card card-small card-post card-post--1">
+
+                            <div id="gif" style="display: none;">
+                                <img id="gifImage" class="card-post__image"/>
+                            </div>
+                            <!-- Your first iframe content -->
+                            <div id="videoContent" style="display: none;">
+                                <iframe style="display: none;" id="video" class="card-post__image"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+                                </iframe>
+                                <img style="display: none;" id="noContent" class="card-post__image"/>
+                            </div>
+                            <a id="difficulty" href="#" class="card-post__category badge badge-pill badge-info">intermediate</a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a class="text-fiord-blue" href="#">Sets & Instructions</a>
+                                </h5>
+                                <div class="btn-group btn-group-toggle mb-3" data-toggle="buttons">
+                                    <label id="set" class="btn btn-white active">
+                                        <input type="radio" name="options" id="option3"
+                                               autocomplete="off" checked>Sets</label>
+                                    <label id="instruction" class="btn btn-white">
+                                        <input type="radio" name="options" id="option1"
+                                               autocomplete="off">Instructions</label>
+                                </div>
+                                <div class="row" id="setOptions">
+                                    <div class="col">
+                                        <div>
+                                            <div class="card-body p-0 pb-3 text-center">
+                                                <table class="table mb-0">
+                                                    <thead class="bg-light">
+                                                    <tr>
+                                                        <th scope="col" class="border-0">#</th>
+                                                        <th scope="col" class="border-0">Repetitions</th>
+                                                        <th scope="col" class="border-0">Weight (kg)</th>
+                                                        <th scope="col" class="border-0"></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="sets">
+                                                    </tbody>
+                                                </table>
+                                                <button id="addRow" type="submit" class="btn btn-accent">Add Set
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="instructionOptions" style="display: none;">
+                                    <p id="instructions" class="card-text d-inline-block mb-3"> Instructions for this
+                                        exercise are not available in our database yet. We are working on it! You can
+                                        also help in the development and improvement of this bot by sending us
+                                        information about the exercise to kvad.software@rambler.ru</p>
+                                </div>
+                                <span class="text-muted">
+                                    <div class="card-post border-top">
+                                        <div class="my-auto ml-auto">
+                                            <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                                                <input type="checkbox" id="neverRecommend" name="neverRecommend"
+                                                       class="custom-control-input">
+                                                <label class="custom-control-label" for="neverRecommend">Never Recommend Again</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-post d-flex">
+                                        <div id="change" href="#" class="card-text mr-auto mt-3">
+                                            <a class="nav-link" href="#">Change Exercise</a>
+                                        </div>
+                                        <div class="my-auto ml-auto">
+                                            <button id="delete" type="button"
+                                                    class="mb-2 btn btn-outline-danger mr-2">Remove from Program</button>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+<script src="../scripts/shards-dashboards.1.1.0.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="scripts/details.js"></script>
+</body>
+</html>

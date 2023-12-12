@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="no-js h-100" lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Настройки BBoosty</title>
+    <meta name="description" content="Настройки BBoosty">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../styles/shards-dashboards.1.1.0.css">
+    <link rel="stylesheet" href="../styles/extras.1.1.0.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.2/dist/flatpickr.min.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+<body class="h-100">
+<div class="container-fluid">
+    <input type="hidden" name="id" id="id">
+    <div class="row">
+        <main class="main-content col-lg-12 col-md-12 col-sm-12 p-0 offset-lg-0 offset-md-0">
+            <div class="main-content-container container-fluid px-4">
+                <div class="page-header row no-gutters py-4">
+                    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                        <span id="ruName" class="text-uppercase page-subtitle"></span>
+                        <h3 id="enName" class="page-title">Настройки</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                        <div class="card card-small card-post card-post--1">
+                            <div class="card-body">
+                                <strong class="text-muted d-block">Имя пользователя:</strong>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <input id="username" type="text" class="form-control"
+                                               placeholder="Телеграм юзернейм не настроен" aria-label="kcal"
+                                               aria-describedby="basic-addon1" disabled>
+                                    </div>
+                                </div>
+                                <strong class="text-muted d-block">Имя:</strong>
+                                <div a class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <input id="firstName" type="text" class="form-control" placeholder="Иван"
+                                               aria-label="firstName" aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <strong class="text-muted d-block">Фамилия:</strong>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <input id="lastName" type="text" class="form-control" placeholder="Иванов"
+                                               aria-label="lastName" aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <strong class="text-muted d-block">Ваш язык:</strong>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <select id="languageCode" class="form-control">
+                                            <option value="ru">🇷🇺 Русский</option>
+                                            <option value="en">🇺🇸 English</option>
+                                            <option value="de">🇩🇪 Deutsch</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <strong class="text-muted d-block">Дата следующей тренировки:</strong>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <input inputmode="numeric" class="form-control" type="text" id="nextDate"
+                                               name="nextDate" pattern="-\d{2}.\d{2}.\d{4}" placeholder="DD.MM.YYYY">
+                                    </div>
+                                </div>
+                                <strong class="text-muted d-block">Регулярность (дни в неделю):</strong>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <select id="regularity" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="4">4</option>
+                                            <option value="7">каждый день</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <strong class="text-muted d-block">Ваш уровень:</strong>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <select id="difficulty" class="form-control">
+                                            <option value="beginner">Новичок</option>
+                                            <option value="intermediate">Средний</option>
+                                            <option value="expert">Эксперт</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <strong class="text-muted d-block">Доступное оборудование:</strong>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <select id="equipments" multiple="multiple" class="form-control">
+                                            <option value="hammer">Молот</option>
+                                            <option value="wheel">Колесо</option>
+                                            <option value="roller">Роллер</option>
+                                            <option value="bosu ball">Мяч Bosu</option>
+                                            <option value="kettlebell">Гиря</option>
+                                            <option value="barbell">Штанга</option>
+                                            <option value="tire">Шина</option>
+                                            <option value="sled machine">Тренажер-санки</option>
+                                            <option value="cable">Трос</option>
+                                            <option value="weighted">Взвешиваемый</option>
+                                            <option value="elliptical machine">Эллиптический тренажер</option>
+                                            <option value="assisted">Спомогательный</option>
+                                            <option value="stability ball">Мяч стабильности</option>
+                                            <option value="smith machine">Тренажер Smith</option>
+                                            <option value="skierg machine">Тренажер Skierg</option>
+                                            <option value="dumbbell">Гантель</option>
+                                            <option value="rope">Канат</option>
+                                            <option value="medicine ball">Медицинский мяч</option>
+                                            <option value="roller">Роллер</option>
+                                            <option value="stepmill machine">Тренажер Stepmill</option>
+                                            <option value="upper body ergometer">Верхний эргометр</option>
+                                            <option value="band">Резинка</option>
+                                            <option value="leverage machine">Тренажер с плечевым упором</option>
+                                            <option value="stationary bike">Стационарный велосипед</option>
+                                            <option value="body weight">Собственный вес</option>
+                                            <option value="trap bar">Трапециевидная штанга</option>
+                                            <option value="resistance band">Эластичная лента</option>
+                                            <option value="olympic barbell">Олимпийская штанга</option>
+                                            <option value="ez barbell">EZ-штанга</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <strong class="text-muted d-block">Предпочтительные виды упражнений:</strong>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <select id="types" multiple="multiple" class="form-control">
+                                            <option value="strength">Силовые</option>
+                                            <option value="cardio">Кардио</option>
+                                            <option value="powerlifting">Пауэрлифтинг</option>
+                                            <option value="stretching">Растяжка</option>
+                                            <option value="plyometrics">Плиометрика</option>
+                                            <option value="olympic_weightlifting">Тяжелая атлетика</option>
+                                            <option value="strongman">Стронгман</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+<script src="../scripts/shards-dashboards.1.1.0.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="scripts/settings.js"></script>
+</body>
+
+</html>

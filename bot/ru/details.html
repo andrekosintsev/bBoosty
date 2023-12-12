@@ -1,5 +1,5 @@
-<!doctype html>
-<html class="no-js h-100" lang="en">
+<!DOCTYPE html>
+<html class="no-js h-100" lang="ru">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.css">
-    <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../styles/shards-dashboards.1.1.0.css">
+    <link rel="stylesheet" href="../styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body class="h-100">
@@ -24,8 +24,7 @@
             <div class="main-content-container container-fluid px-4">
                 <div class="page-header row no-gutters py-4">
                     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                        <span id="ruName"
-                              class="text-uppercase page-subtitle"></span>
+                        <span id="ruName" class="text-uppercase page-subtitle"></span>
                         <h3 id="enName" class="page-title"></h3>
                     </div>
                 </div>
@@ -43,18 +42,18 @@
                                 </iframe>
                                 <img style="display: none;" id="noContent" class="card-post__image"/>
                             </div>
-                            <a id="difficulty" href="#" class="card-post__category badge badge-pill badge-info">intermediate</a>
+                            <a id="difficulty" href="#" class="card-post__category badge badge-pill badge-info">Средний</a>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a class="text-fiord-blue" href="#">Sets & Instructions</a>
+                                    <a class="text-fiord-blue" href="#">Подходы & Инструкция</a>
                                 </h5>
                                 <div class="btn-group btn-group-toggle mb-3" data-toggle="buttons">
                                     <label id="set" class="btn btn-white active">
                                         <input type="radio" name="options" id="option3"
-                                               autocomplete="off" checked>Sets</label>
+                                               autocomplete="off" checked>Подходы</label>
                                     <label id="instruction" class="btn btn-white">
                                         <input type="radio" name="options" id="option1"
-                                               autocomplete="off">Instructions</label>
+                                               autocomplete="off">Инструкция</label>
                                 </div>
                                 <div class="row" id="setOptions">
                                     <div class="col">
@@ -64,25 +63,22 @@
                                                     <thead class="bg-light">
                                                     <tr>
                                                         <th scope="col" class="border-0">#</th>
-                                                        <th scope="col" class="border-0">Repetitions</th>
-                                                        <th scope="col" class="border-0">Weight (kg)</th>
+                                                        <th scope="col" class="border-0">Повторения</th>
+                                                        <th scope="col" class="border-0">Вес (кг)</th>
                                                         <th scope="col" class="border-0"></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody id="sets">
                                                     </tbody>
                                                 </table>
-                                                <button id="addRow" type="submit" class="btn btn-accent">Add Set
+                                                <button id="addRow" type="submit" class="btn btn-accent">Добавить сет
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div id="instructionOptions" style="display: none;">
-                                    <p id="instructions" class="card-text d-inline-block mb-3"> Instructions for this
-                                        exercise are not available in our database yet. We are working on it! You can
-                                        also help in the development and improvement of this bot by sending us
-                                        information about the exercise to kvad.software@rambler.ru</p>
+                                    <p id="instructions" class="card-text d-inline-block mb-3"> Инструкций для данного упражнения пока нет в нашей базе данных. Мы работаем над этим! Вы также можете помочь в разработке и улучшении этого бота, отправив нам информацию об упражнении по адресу kvad.software@rambler.ru</p>
                                 </div>
                                 <span class="text-muted">
                                     <div class="card-post border-top">
@@ -90,23 +86,20 @@
                                             <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                                 <input type="checkbox" id="neverRecommend" name="neverRecommend"
                                                        class="custom-control-input">
-                                                <label class="custom-control-label" for="neverRecommend">Never Recommend Again</label>
+                                                <label class="custom-control-label" for="neverRecommend">Больше не рекомендовать</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-post d-flex">
                                         <div id="change" href="#" class="card-text mr-auto mt-3">
-                                            <a class="nav-link" href="#">Change Exercise</a>
+                                            <a class="nav-link" href="#">Изменить упражнение</a>
                                         </div>
                                         <div class="my-auto ml-auto">
                                             <button id="delete" type="button"
-                                                    class="mb-2 btn btn-outline-danger mr-2">Remove from Program</button>
+                                                    class="mb-2 btn btn-outline-danger mr-2">Удалить из программы</button>
                                         </div>
                                     </div>
                                 </span>
-                            </div>
-                            <div type="hidden" class="card-post border-top card-text my-auto ml-auto text-muted">
-                                <a id="feedback" class="nav-link" href="#">Your version</a>
                             </div>
                         </div>
                     </div>
@@ -126,7 +119,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-<script src="scripts/shards-dashboards.1.1.0.js"></script>
+<script src="../scripts/shards-dashboards.1.1.0.js"></script>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="scripts/details.js"></script>
 </body>
