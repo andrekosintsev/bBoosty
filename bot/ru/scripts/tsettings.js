@@ -26,8 +26,8 @@ function populateFormForEditing(entry) {
     document.getElementById('firstName').value = entry.firstName || "";
     document.getElementById('lastName').value = entry.lastName || "";
     document.getElementById('languageCode').value = entry.languageCode || "";
-    document.getElementById('descriptionDetails').value = entry.description || "";
-    document.getElementById('description').textContent = entry.description || "";
+    document.getElementById('descriptionDetails').textContent = entry.description || "";
+    document.getElementById('description').value = entry.description || "";
     populateList(entry.types, 'types');
 }
 
