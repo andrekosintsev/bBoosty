@@ -24,7 +24,7 @@ function populateFormForEditing(entry) {
     document.getElementById('id').value = entry.id || "";
     document.getElementById('username').textContent = entry.username || "";
     if(entry.types) {
-        document.getElementById('selTypes').textContent =  entry.types.join(', ');
+        document.getElementById('selTypes').textContent =  entry.types.map(type => '#' + type).join(', ');
     }
     document.getElementById('firstName').value = entry.firstName || "";
     document.getElementById('lastName').value = entry.lastName || "";
