@@ -74,13 +74,6 @@ function populateList(arrayElement, fieldName) {
 }
 
 Telegram.WebApp.onEvent("mainButtonClicked", function () {
-    var enteredDate = datePickerInput.value;
-    if (enteredDate && /\d{2}.\d{2}.\d{4}/.test(enteredDate)) {
-        const [day, month, year] = enteredDate.split('.');
-        const formattedDate = `${year}-${month}-${day}`;
-        var enteredDateObject = new Date(formattedDate);
-        var currentDate = new Date();
-        if (enteredDateObject.toDateString() > currentDate.toDateString()) {
             tg.sendData(JSON.stringify({
                 settings: {
                     id: document.getElementById('id').value,
@@ -100,24 +93,5 @@ Telegram.WebApp.onEvent("mainButtonClicked", function () {
                 }
             }));
             tg.close();
-        } else {
-            tg.showPopup({
-                title: 'Пожалуйста, установите дату следующей тренировки (Следующий день должен быть как минимум завтра)',
-                message: 'Вы не указали дату вашей следующей тренировки. Эта информация важна для нас, чтобы создать программу, соответствующую вашему расписанию. Пожалуйста, укажите дату, когда вы планируете тренироваться в следующий раз.',
-                buttons: [{
-                    id: 'ok',
-                    text: 'Ок'
-                }]
-            }, function (buttonId) { });
-        }
-    } else {
-        tg.showPopup({
-            title: 'Пожалуйста, установите дату следующей тренировки (Следующий день должен быть как минимум завтра)',
-            message: 'Вы не указали дату вашей следующей тренировки. Эта информация важна для нас, чтобы создать программу, соответствующую вашему расписанию. Пожалуйста, укажите дату, когда вы планируете тренироваться в следующий раз.',
-            buttons: [{
-                id: 'ok',
-                text: 'Ок'
-            }]
-        }, function (buttonId) { });
     }
 });
