@@ -62,5 +62,4 @@ Telegram.WebApp.onEvent("mainButtonClicked", function () {
                 }
             }));
             tg.close();
-    }
 });
