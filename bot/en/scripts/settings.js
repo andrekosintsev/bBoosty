@@ -5,35 +5,6 @@ tg.expand();
 tg.MainButton.setText("Update Account");
 tg.MainButton.show();
 
-var datePickerInput = document.getElementById('nextDate');
-[datePickerInput]
-.forEach(item => {
-    if (!item) {
-        return;
-    }
-    item.addEventListener('input', function() {
-        // Remove any non-digit characters
-        const cleanedInput = this.value.replace(/\D/g, '');
-
-        // Check if the input is not empty
-        if (cleanedInput.length > 0) {
-            // Extract day, month, and year parts
-            let day = cleanedInput.slice(0, 2);
-            let month = cleanedInput.slice(2, 4);
-            let year = cleanedInput.slice(4, 8);
-            // Validate day and month
-            if (day > 31) day = '31';
-            if (month > 12) month = '12';
-
-            // Format the date as DD.MM.YYYY
-            let formattedDate = day;
-            if (month) formattedDate += '.' + month;
-            if (year) formattedDate += '.' + year;
-            this.value = formattedDate;
-        }
-    });
-});
-
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
     return urlSearchParams.get(name);
@@ -56,7 +27,6 @@ function populateFormForEditing(entry) {
     document.getElementById('lastName').value = entry.lastName || "";
     document.getElementById('languageCode').value = entry.languageCode || "";
     document.getElementById('difficulty').value = entry.difficulty || "";
-    document.getElementById('nextDate').value = entry.upcoming || "";
     document.getElementById('regularity').value = entry.regularity || "";
     populateList(entry.equipments, 'equipments');
     populateList(entry.types, 'types');
@@ -82,7 +52,6 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
                         lastName: document.getElementById('lastName').value,
                         languageCode: document.getElementById('languageCode').value,
                         difficulty: document.getElementById('difficulty').value,
-                        upcoming: enteredDate,
                         regularity: document.getElementById('regularity').value,
                         equipments: Array.from(document.getElementById('equipments').selectedOptions).map(function (option) {
                             return option.value;
