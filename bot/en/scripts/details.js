@@ -70,7 +70,7 @@ function populateFormForEditing(entry) {
             document.getElementById("noContent").style.width = '100%';
         }
         if (entry.exercise.gifUrl) {
-            document.getElementById("gifImage").src = entry.exercise.gifUrl;
+            document.getElementById("gifImage").src = "https://bodyboots.surge.sh/" + entry.exercise.id +".gif";
             document.getElementById("gifImage").style.width = "-webkit-fill-available";
         } else {
             document.getElementById("gifImage").src = "images/not_available.gif";
