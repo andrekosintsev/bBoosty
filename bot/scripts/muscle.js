@@ -83,10 +83,10 @@ function generateRatingStars(rating) {
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (selectedIds.length > 0) {
-        if (selectedIds.length >= 6) {
+        if (selectedIds.length >= 9) {
             tg.showPopup({
                 title: 'Error',
-                message: 'You have chosen more than 5 exercises. Please trim your selection to 5 exercises or fewer. I am crafting a program that focuses on a maximum of 5 exercises, as exceeding this limit may not yield additional benefits.',
+                message: 'You have chosen more than 8 exercises. Please trim your selection to 8 exercises or fewer. I am crafting a program that focuses on a maximum of 8 exercises, as exceeding this limit may not yield additional benefits.',
                 buttons: [{
                     id: 'delete',
                     type: 'ok',
