@@ -69,13 +69,8 @@ function populateFormForEditing(entry) {
             document.getElementById("noContent").style.display = 'block';
             document.getElementById("noContent").style.width = '100%';
         }
-        if (entry.exercise.gifUrl) {
-            document.getElementById("gifImage").src = "https://bodyboots.surge.sh/" + entry.exercise.id +".gif";
-            document.getElementById("gifImage").style.width = "-webkit-fill-available";
-        } else {
-            document.getElementById("gifImage").src = "images/not_available.gif";
-            document.getElementById("gifImage").style.width = "-webkit-fill-available";
-        }
+        document.getElementById("gifImage").src = "https://bodyboots.surge.sh/" + entry.exercise.id +".gif";
+        document.getElementById("gifImage").style.width = "-webkit-fill-available";
         document.getElementById("gif").style.display = 'block';
 
         if (entry.trainingSet.data) {
