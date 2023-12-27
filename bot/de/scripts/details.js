@@ -3,7 +3,7 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 tg.MainButton.text = "Sätze speichern";
 tg.MainButton.show();
-const jsonFilePath = 'data/ru.json';
+const jsonFilePath = 'https://bodyboost.surge.sh/de.json';
 
 let rowCount = 1;
 const maxRowCount = 7;
@@ -70,7 +70,7 @@ function populateFormForEditing(entry) {
             document.getElementById("noContent").style.display = 'block';
             document.getElementById("noContent").style.width = '100%';
         }
-        document.getElementById("gifImage").src = "https://bodyboots.surge.sh/" + entry.exercise.id +".gif";
+        document.getElementById("gifImage").src = "https://bodyboost.surge.sh/" + entry.exercise.id +".gif";
         document.getElementById("gifImage").style.width = "-webkit-fill-available";
         document.getElementById("gif").style.display = 'block';
 

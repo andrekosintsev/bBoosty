@@ -61,7 +61,7 @@ function createMuscleCard(elements) {
             </td>
             <td>${index + 1}</td>
             <td>
-                <div id="${element}" class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); position: relative; border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;">
+                <div id="${element}" class="card-post__image" style="background-image: url('https://bodyboost.surge.sh/${element}.gif'); position: relative; border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;">
                 </div>
             </td>`;
 
