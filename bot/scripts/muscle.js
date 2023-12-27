@@ -20,17 +20,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const encodedJsonData = getQueryParam("json_data");
     if (encodedJsonData) {
         const jsonData = decodeURIComponent(encodedJsonData);
-        const jsonArray = JSON.parse(jsonData);
-        if (jsonArray.selected) {
-            selectedIds = jsonArray.selected;
+        const jsonObject = JSON.parse(jsonData);
+        if (jsonObject.selected) {
+            selectedIds = jsonObject.selected;
         }
-        if (jsonArray.group) {
+        if (jsonObject.group) {
             mGroup = jsonArray.group;
         }
-        if (jsonArray.equipment) {
+        if (jsonObject.equipment) {
             sEquipment = jsonArray.equipment;
         }
-        muscleGrid.appendChild(createMuscleCard(jsonArray.active));
+        muscleGrid.appendChild(createMuscleCard(jsonObject.active));
     }
 });
 
