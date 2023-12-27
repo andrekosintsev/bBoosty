@@ -7,8 +7,32 @@ tg.expand();
 // Set the main button text and make it visible
 tg.MainButton.text = "Select Program";
 let selectedMuscleGroups = [];
+const equipmentSelect = document.getElementById("equipment");
+
+
+function getQueryParam(name) {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    return urlSearchParams.get(name);
+}
+
+function populateFormForEditing(equipmentList) {
+    equipmentSelect.innerHTML = "";
+        // Populate the select element with options from the list
+        equipmentList.forEach(equipment => {
+            const option = document.createElement("option");
+            option.value = equipment;
+            option.text = equipment;
+            equipmentSelect.appendChild(option);
+        });
+}
 
 document.addEventListener('DOMContentLoaded', function () {
+    const encodedJsonData = getQueryParam("json_data");
+    if (encodedJsonData) {
+       const jsonData = decodeURIComponent(encodedJsonData);
+       const jsonObject = JSON.parse(jsonData);
+       populateFormForEditing(jsonObject);
+    }
     // Get all muscle group IDs
     const muscleGroupIds = [
         'Trapezius', 'Lats', 'Triceps', 'Forearms',
@@ -78,9 +102,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+function getSelectedEquipment() {
+    const equipmentSelect = document.getElementById("equipment");
+    const selectedEquipment = [];
+
+    // Loop through each option in the select element
+    for (let i = 0; i < equipmentSelect.options.length; i++) {
+        const option = equipmentSelect.options[i];
+
+        // Check if the option is selected
+        if (option.selected) {
+            selectedEquipment.push(option.value);
+        }
+    }
+
+    return selectedEquipment;
+}
+
 // Event handler for the main button click
-Telegram.WebApp.onEvent("mainButtonClicked", function() {
-    // Check if no muscle groups are selected
+Telegram.WebApp.onEvent("mainButtonClicked", function () {
+    const selectedEquipment = getSelectedEquipment(); // Assuming you have a function to get selected equipment
+
     if (selectedMuscleGroups.length === 0) {
         tg.showPopup({
             title: 'Choose a Category',
@@ -92,7 +135,6 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
             }]
         });
     } else if (selectedMuscleGroups.length > 4) {
-        // Display a message if more than 4 muscle groups are selected
         tg.showPopup({
             title: 'Maximum Selection Reached',
             message: 'You can only select up to 5 muscle groups.',
@@ -102,11 +144,36 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
                 text: 'OK'
             }]
         });
+    } else if (selectedEquipment.length === 0) {
+        // Check if no equipment is selected
+        tg.showPopup({
+            title: 'Choose Equipment',
+            message: 'Please select at least one equipment for your workout.',
+            buttons: [{
+                id: 'ok',
+                type: 'ok',
+                text: 'OK'
+            }]
+        });
+    } else if (selectedEquipment.length > 6) {
+        // Check if more than 6 equipment items are selected
+        tg.showPopup({
+            title: 'Maximum Equipment Selection Reached',
+            message: 'You can only select up to 6 equipment items.',
+            buttons: [{
+                id: 'ok',
+                type: 'ok',
+                text: 'OK'
+            }]
+        });
     } else {
-        // Send the selected muscle categories to the Telegram WebApp and close the app
+        // Send the selected muscle categories and equipment to the Telegram WebApp and close the app
         tg.sendData(JSON.stringify({
-            muscle_group: selectedMuscleGroups
+            muscle_group: selectedMuscleGroups,
+            equipment: selectedEquipment
         }));
         tg.close();
     }
 });
+
+
