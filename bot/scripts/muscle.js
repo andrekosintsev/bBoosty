@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", function() {
             selectedIds = jsonObject.selected;
         }
         if (jsonObject.group) {
-            mGroup = jsonArray.group;
+            mGroup = jsonObject.group;
         }
         if (jsonObject.equipment) {
-            sEquipment = jsonArray.equipment;
+            sEquipment = jsonObject.equipment;
         }
         muscleGrid.appendChild(createMuscleCard(jsonObject.active));
     }
