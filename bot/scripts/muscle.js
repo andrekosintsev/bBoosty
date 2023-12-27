@@ -7,6 +7,7 @@ tg.MainButton.show();
 
 const muscleGrid = document.getElementById("muscles");
 let mGroup;
+let sEquipment;
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -25,6 +26,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         if (jsonArray.group) {
             mGroup = jsonArray.group;
+        }
+        if (jsonArray.group) {
+            sEquipment = jsonArray.equipment;
         }
         muscleGrid.appendChild(createMuscleCard(jsonArray.active));
     }
@@ -96,7 +100,8 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
         } else {
             tg.sendData(JSON.stringify({
                 exercises: selectedIds,
-                group: mGroup
+                group: mGroup,
+                equipment: sEquipment
             }));
             tg.close();
         }
