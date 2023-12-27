@@ -3,7 +3,7 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 tg.MainButton.text = "Sätze speichern";
 tg.MainButton.show();
-const jsonFilePath = 'https://bodyboost.surge.sh/de.json';
+const jsonFilePath = 'data/de.json';
 
 let rowCount = 1;
 const maxRowCount = 7;
