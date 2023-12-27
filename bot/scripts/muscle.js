@@ -41,7 +41,7 @@ function createMuscleCard(elements) {
 
         gridItem.innerHTML = `
                                         <div class="card">
-                                                <div class="card-post__image" style="background-image: url('https://bodyboots.surge.sh/${element}.gif'); border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;"></div>
+                                                <div class="card-post__image" style="background-image: url('https://bodyboost.surge.sh/${element}.gif'); border-bottom-left-radius: 0.625rem; border-bottom-right-radius: 0.625rem;"></div>
                                         </div>`;
         const index = selectedIds.indexOf(element);
         if (index > -1) {
