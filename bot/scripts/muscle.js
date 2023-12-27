@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (jsonArray.group) {
             mGroup = jsonArray.group;
         }
-        if (jsonArray.group) {
+        if (jsonArray.equipment) {
             sEquipment = jsonArray.equipment;
         }
         muscleGrid.appendChild(createMuscleCard(jsonArray.active));
