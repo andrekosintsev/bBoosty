@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     pathElement.style= "fill: #333;";
                 });
             } else {
-                // Check if the maximum limit of 5 selections is reached
-                if (selectedMuscleGroups.length < 5) {
+                // Check if the maximum limit of 7 selections is reached
+                if (selectedMuscleGroups.length < 7) {
                     // Select the muscle group
                     selectedMuscleGroups.push(muscleId);
                     allPath.forEach(function (pathElement) {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Display a message if the maximum limit is reached
                     tg.showPopup({
                         title: 'Maximum Selection Reached',
-                        message: 'You can only select up to 5 muscle groups.',
+                        message: 'You can only select up to 7 muscle groups.',
                         buttons: [{
                             id: 'ok',
                             type: 'ok',
@@ -134,10 +134,10 @@ Telegram.WebApp.onEvent("mainButtonClicked", function () {
                 text: 'OK'
             }]
         });
-    } else if (selectedMuscleGroups.length > 4) {
+    } else if (selectedMuscleGroups.length > 7) {
         tg.showPopup({
             title: 'Maximum Selection Reached',
-            message: 'You can only select up to 5 muscle groups.',
+            message: 'You can only select up to 7 muscle groups.',
             buttons: [{
                 id: 'ok',
                 type: 'ok',
