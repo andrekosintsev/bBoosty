@@ -3,7 +3,6 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 tg.MainButton.text = "Сохранить подходы";
 tg.MainButton.show();
-const jsonFilePath = 'data/ru.json';
 
 let rowCount = 1;
 const maxRowCount = 7;
@@ -31,9 +30,9 @@ function populateFormForEditing(entry) {
     if (entry.exercise) {
         document.getElementById("exId").value = entry.exercise.id || '';
         document.getElementById("muscle").value = entry.exercise.muscle || '';
-        fetch(jsonFilePath).then(response => response.json())
-        .then(data => {document.getElementById("instructions").textContent = data[entry.exercise.id]; })
-        .catch(error => {console.error('Error fetching JSON:', error.message);});
+        fetch("https://3jqki3kt4ktgdhz6cggvhgnoaa0gpxnk.lambda-url.us-east-1.on.aws/?lang=ru&"+entry.exercise.id).then(response => response.json())
+                        .then(data => {document.getElementById("instructions").textContent = data.text; })
+                        .catch(error => {console.error('Error fetching JSON:', error.message);});
 
         if (entry.exercise.difficulty) {
             switch (entry.exercise.difficulty) {

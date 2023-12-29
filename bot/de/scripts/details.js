@@ -3,7 +3,6 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 tg.MainButton.text = "Sätze speichern";
 tg.MainButton.show();
-const jsonFilePath = 'data/de.json';
 
 let rowCount = 1;
 const maxRowCount = 7;
@@ -15,7 +14,6 @@ function getQueryParam(name) {
 
 document.addEventListener("DOMContentLoaded", function() {
     const encodedJsonData = getQueryParam("json_data");
-
     if (encodedJsonData) {
         const jsonData = decodeURIComponent(encodedJsonData);
         const jsonObject = JSON.parse(jsonData);
@@ -31,10 +29,9 @@ function populateFormForEditing(entry) {
     if (entry.exercise) {
         document.getElementById("exId").value = entry.exercise.id || '';
         document.getElementById("muscle").value = entry.exercise.muscle || '';
-        fetch(jsonFilePath).then(response => response.json())
-                .then(data => {document.getElementById("instructions").textContent = data[entry.exercise.id]; })
+        fetch("https://3jqki3kt4ktgdhz6cggvhgnoaa0gpxnk.lambda-url.us-east-1.on.aws/?lang=de&"+entry.exercise.id).then(response => response.json())
+                .then(data => {document.getElementById("instructions").textContent = data.text; })
                 .catch(error => {console.error('Error fetching JSON:', error.message);});
-
         if (entry.exercise.difficulty) {
             switch (entry.exercise.difficulty) {
                 case 'beginner':
