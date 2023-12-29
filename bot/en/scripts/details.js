@@ -30,7 +30,7 @@ function populateFormForEditing(entry) {
     if (entry.exercise) {
         document.getElementById("exId").value = entry.exercise.id || '';
         document.getElementById("muscle").value = entry.exercise.muscle || '';
-        fetch("https://3jqki3kt4ktgdhz6cggvhgnoaa0gpxnk.lambda-url.us-east-1.on.aws/?lang=en&"+entry.exercise.id).then(response => response.json())
+        fetch("https://3jqki3kt4ktgdhz6cggvhgnoaa0gpxnk.lambda-url.us-east-1.on.aws/?lang=en&id="+entry.exercise.id).then(response => response.json())
                         .then(data => {document.getElementById("instructions").textContent = data.text; })
                         .catch(error => {console.error('Error fetching JSON:', error.message);});
 
