@@ -67,7 +67,7 @@ function populateFormForEditing(entry) {
             document.getElementById("noContent").style.display = 'block';
             document.getElementById("noContent").style.width = '100%';
         }
-        document.getElementById("gifImage").src = "https://bodyboost.surge.sh/" + entry.exercise.id +".gif";
+        document.getElementById("gifImage").src = "https://d1uymmnq9lzoil.cloudfront.net/images/" + entry.exercise.id +".gif";
         document.getElementById("gifImage").style.width = "-webkit-fill-available";
         document.getElementById("gif").style.display = 'block';
 
