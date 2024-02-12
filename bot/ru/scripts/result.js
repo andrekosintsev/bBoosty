@@ -1,7 +1,7 @@
 let tg = window.Telegram.WebApp;
 
 tg.expand();
-tg.MainButton.text = "Save and Send";
+tg.MainButton.text = "Сохранить/получить программу";
 tg.MainButton.show();
 let mGroup;
 
@@ -43,9 +43,9 @@ function createMuscleCard(elements) {
     table.classList.add('col-lg-4', 'col-sm-12', 'mb-2', 'table', 'mb-0');
     table.innerHTML = `<thead class="bg-light">
                           <tr>
-                              <th scope="col" class="border-bottom-0">Move Up/Down</th>
-                              <th scope="col" class="border-bottom-0">Order</th>
-                              <th scope="col" class="border-bottom-0">Exercise</th>
+                              <th scope="col" class="border-bottom-0">Двигать вверх/вниз</th>
+                              <th scope="col" class="border-bottom-0">Порядок #</th>
+                              <th scope="col" class="border-bottom-0">Упражнение</th>
                           </tr>
                       </thead>`;
 
