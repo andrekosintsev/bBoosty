@@ -8,6 +8,15 @@ tg.expand();
 tg.MainButton.text = "Discover exercises by selected equipment";
 let selectedMuscleGroups = [];
 const equipmentSelect = document.getElementById("equipment");
+let allEquipments;
+
+fetch('scripts/equipment.json')
+  .then(response => response.json())
+  .then(data => {
+    // Access value based on provided key
+    allEquipments = data;
+  })
+  .catch(error => console.error('Error loading JSON:', error));
 
 
 function getQueryParam(name) {
@@ -21,7 +30,7 @@ function populateFormForEditing(equipmentList) {
         equipmentList.forEach(equipment => {
             const option = document.createElement("option");
             option.value = equipment;
-            option.text = equipment;
+            option.text = allEquipments[equipment];
             equipmentSelect.appendChild(option);
         });
 }
