@@ -5,7 +5,7 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 
 // Set the main button text and make it visible
-tg.MainButton.text = "Генерировать упражнения для оборудования";
+tg.MainButton.text = "Генерировать упражнения";
 let selectedMuscleGroups = [];
 const equipmentSelect = document.getElementById("equipment");
 let allEquipments;
