@@ -8,15 +8,6 @@ tg.expand();
 tg.MainButton.text = "Генерировать упражнения";
 let selectedMuscleGroups = [];
 const equipmentSelect = document.getElementById("equipment");
-let allEquipments;
-
-fetch('scripts/equipment.json')
-  .then(response => response.json())
-  .then(data => {
-    // Access value based on provided key
-    allEquipments = data;
-  })
-  .catch(error => console.error('Error loading JSON:', error));
 
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -24,14 +15,21 @@ function getQueryParam(name) {
 }
 
 function populateFormForEditing(equipmentList) {
-    equipmentSelect.innerHTML = "";
-        // Populate the select element with options from the list
-        equipmentList.forEach(equipment => {
-            const option = document.createElement("option");
-            option.value = equipment;
-            option.text = allEquipments[equipment];
-            equipmentSelect.appendChild(option);
-        });
+    fetch('scripts/equipment.json')
+      .then(response => response.json())
+      .then(data => {
+       let allEquipments = data;
+        equipmentSelect.innerHTML = "";
+                // Populate the select element with options from the list
+                equipmentList.forEach(equipment => {
+                    const option = document.createElement("option");
+                    option.value = equipment;
+                    option.text = allEquipments[equipment];
+                    equipmentSelect.appendChild(option);
+                });
+      })
+      .catch(error => console.error('Error loading JSON:', error));
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {
