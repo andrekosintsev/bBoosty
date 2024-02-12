@@ -44,7 +44,7 @@ function createMuscleCard(elements) {
     table.innerHTML = `<thead class="bg-light">
                           <tr>
                               <th scope="col" class="border-bottom-0">Nach oben/unten verschieben</th>
-                              <th scope="col" class="border-bottom-0">Reihenfolge #</th>
+                              <th scope="col" class="border-bottom-0">Folge #</th>
                               <th scope="col" class="border-bottom-0">Übung</th>
                           </tr>
                       </thead>`;
