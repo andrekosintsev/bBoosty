@@ -9,6 +9,29 @@ tg.MainButton.text = "Entdecken Sie Übungen";
 let selectedMuscleGroups = [];
 const equipmentSelect = document.getElementById("equipment");
 
+const muscle = document.getElementById('muscle');
+const equip = document.getElementById('equip');
+
+function hideAnother(nameActive) {
+    [muscle, equip].forEach(item => {
+        if (nameActive === item) {
+            document.getElementById(item.id + 'Options').style.display = 'block';
+            item.classList.add("btn-primary");
+            item.classList.remove("btn-white");
+        } else {
+            document.getElementById(item.id + 'Options').style.display = 'none';
+            item.classList.add("btn-white");
+            item.classList.remove("btn-primary");
+        }
+    });
+}
+
+[muscle, equip].forEach(item => {
+    item.addEventListener('click', function() {
+        hideAnother(item);
+    });
+});
+
 function getQueryParam(name) {
     const urlSearchParams = new URLSearchParams(window.location.search);
     return urlSearchParams.get(name);
@@ -34,6 +57,7 @@ fetch('scripts/equipment.json')
 
 document.addEventListener('DOMContentLoaded', function () {
     const encodedJsonData = getQueryParam("json_data");
+    hideAnother(muscle);
     if (encodedJsonData) {
        const jsonData = decodeURIComponent(encodedJsonData);
        const jsonObject = JSON.parse(jsonData);
