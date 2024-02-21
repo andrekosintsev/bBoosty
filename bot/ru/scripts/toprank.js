@@ -39,7 +39,7 @@ function populateFormForEditing(entry) {
                         </div>
                     </div>
                     <div class="my-auto ml-auto">
-                        <a class="btn btn-sm btn-white" href=${linkProgram}>
+                        <a class="btn btn-sm btn-white" href=${linkProgram} onclick="tg.close()">
                             <i class="fa fa-play mr-1"></i></a>
                     </div>
                 </div>
