@@ -30,11 +30,12 @@ function populateFormForEditing(entry) {
             <div class="card card-small card-post mb-4">
                 <div class="card-body d-flex">
                     <div class="card-post__author d-flex">
-                        <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('images/logo.png');"></a>
                         <div class="d-flex flex-column justify-content-center ml-3">
                             <span class="card-post__author-name">${name}</span>
-                            <small class="text-muted">Использовали программу: <br>${entry.count} человек</small>
-                            <small class="text-muted">Мышечная группа:<br> ${entry.muscle}</small>
+                            <small class="text-muted">Использовали программу: ${entry.count} человек</small>
+                            <small class="text-muted">Части тела: ${entry.bodyPart}</small>
+                            <small class="text-muted">Мышечная группа: ${entry.muscle}</small>
+                            <small class="text-muted">Тренажеры: ${entry.equipment}</small>
                             ${entry.promoted ? `<small style="color: #B8860B;">Promoted</small>` : ''}
                         </div>
                     </div>
