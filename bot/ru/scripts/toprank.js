@@ -29,16 +29,16 @@ function populateFormForEditing(entry) {
     const colDiv = document.createElement('div');
     colDiv.classList.add('col-lg-4');
     const linkProgram = 'https://t.me/BBoostyBot?start='+entry.id;
-    const name = !entry.fullName ? 'Не установлено' : entry.fullName;
+    const name = !entry.fullName ? 'Имя не установлено' : entry.fullName;
     colDiv.innerHTML = `
             <div class="card card-small card-post mb-4">
                 <div class="card-body d-flex">
                     <div class="card-post__author d-flex">
                         <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('images/logo.png');">Written by James Khan</a>
                         <div class="d-flex flex-column justify-content-center ml-3">
-                            <span class="card-post__author-name">${entry.muscle}</span>
+                            <span class="card-post__author-name">Автор: ${name}</span>
                             <small class="text-muted">Получили программу: <br>${entry.count} человек</small>
-                            <small class="text-muted">Создал: ${name} </small>
+                            <small class="text-muted"> ${entry.muscle}</small>
                         </div>
                     </div>
                     <div class="my-auto ml-auto">
