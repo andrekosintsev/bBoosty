@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function populateFormForEditing(entry) {
     const colDiv = document.createElement('div');
     colDiv.classList.add('col-lg-4');
-    const linkProgram = 'https://t.me/TrainMateBot?start='+entry.id;
+    const linkProgram = 'https://t.me/BBoostyBot?start='+entry.id;
     const name = !entry.fullName ? 'Name nicht festgelegt' : entry.fullName;
     colDiv.innerHTML = `
             <div class="card card-small card-post mb-4">
